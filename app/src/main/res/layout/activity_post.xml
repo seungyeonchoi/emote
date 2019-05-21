@@ -20,5 +20,13 @@
             android:inputType="textPersonName"
             android:text=""
             android:ems="10"
-            android:id="@+id/editText2" android:layout_weight="1"/> //ems =10 : 10글자의 너비를 가진 edittext
+            android:id="@+id/editText2" android:layout_weight="1"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/editText" android:layout_weight="1"/>
+    //ems =10 : 10글자의 너비를 가진 edittext
 </LinearLayout>
