@@ -15,10 +15,7 @@
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
-        <activity android:name=".Signinctivity">
-        </activity>
-        <activity android:name=".login">
-        </activity> <!-- 스플래시 액티비티 -->
+ <!-- 스플래시 액티비티 -->
         <activity
                 android:name=".SplashActivity"
                 android:screenOrientation="portrait"
