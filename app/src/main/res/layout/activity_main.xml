@@ -18,7 +18,11 @@
         <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내 페이지"/>
+                android:text="내 페이지">
+            <android.support.v7.widget.RecyclerView
+            android:id="@+id/myBoardCards"             />
+
+        </android.support.design.widget.TabItem>
 
         <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
