@@ -11,12 +11,21 @@ class MainActivity : AppCompatActivity()
     override fun onFragmentInteraction(uri: Uri) {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+    private val IP_ADDRESS = "http://kiseok.dothome.co.kr/sql.php"
 
     lateinit var adapter:ViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
+        /*
+        MySQL 명령어.
+        button_insert.setOnClickListener{
+            val task = InsertData()
+            task.execute(IP_ADDRESS, "select * from user")
+        }
+        }
+        */
     }
     fun init(){
 
