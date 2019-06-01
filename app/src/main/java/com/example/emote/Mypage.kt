@@ -4,9 +4,13 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_mypage.*
+import kotlinx.android.synthetic.main.fragment_mypage.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,7 +46,19 @@ class Mypage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage, container, false)
+        Log.i("doing","view생성진입")
+       return inflater.inflate(R.layout.fragment_mypage, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        myBoardListview.apply{
+            layoutManager=LinearLayoutManager(activity)
+            adapter=myBoardAdapter()
+            Log.i("doing","boardAdapter추가")
+
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

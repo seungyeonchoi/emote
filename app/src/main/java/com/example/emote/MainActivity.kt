@@ -4,17 +4,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity()
     , Mypage.OnFragmentInteractionListener, Emoteboard.OnFragmentInteractionListener, Statistics.OnFragmentInteractionListener{
     override fun onFragmentInteraction(uri: Uri) {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     lateinit var adapter:ViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("doing","mainActiivity진입")
         setContentView(R.layout.activity_main)
         init()
     }
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity()
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(layout_tab))
         layout_tab.addOnTabSelectedListener(object:TabLayout.OnTabSelectedListener{
             override fun onTabReselected(p0: TabLayout.Tab?) {
-              //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity()
             }
 
             override fun onTabSelected(p0: TabLayout.Tab?) {
-               // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 viewPager.currentItem=p0!!.position
             }
 
