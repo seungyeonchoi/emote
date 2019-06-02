@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">emote</string>
-
     <string name="spin_prompt">활동을 선택하세요</string>
     <string-array name="spin_arr">
         <item>독서</item>
