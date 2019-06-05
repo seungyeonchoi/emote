@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content" android:id="@+id/placeEditText" android:layout_weight="0.5"/>
     </LinearLayout>
         <RadioGroup
-                android:layout_width="match_parent" android:orientation="horizontal"
+                android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
                 android:layout_height="wrap_content">
             <RadioButton
                     android:text="나만보기"
