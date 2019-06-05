@@ -5,12 +5,27 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:orientation="vertical"
-        tools:context=".LoginActivity" android:background="@drawable/splashimg">
+        tools:context=".LoginActivity" android:background="@null">
 
     <LinearLayout
-            android:orientation="vertical" android:layout_weight="1"
+            android:orientation="horizontal" android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitEnd"
+                android:src="@drawable/logo_eng"
+                android:layout_gravity="bottom"
+                android:layout_weight="2"/>
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical" android:layout_weight="1" android:paddingTop="50dp"
