@@ -33,13 +33,22 @@
             android:text="" android:hint="제목"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/titleEditText" android:layout_weight="0.5"/>
-    <EditText
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="내용"
-            android:inputType="text"
-            android:text=""
-            android:ems="10"
-            android:id="@+id/contentsEditText" android:layout_weight="4"/>
+            android:layout_height="wrap_content" android:layout_weight="4">
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:hint="내용"
+                android:inputType="text"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/contentsEditText" />
+        <TextView
+                android:text="녹음시작" android:gravity="center"
+                android:layout_width="match_parent" android:background="@color/colorAccent" android:visibility="gone"
+                android:layout_height="match_parent" android:id="@+id/recordBtn"/>
+    </FrameLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -54,7 +63,7 @@
                 android:layout_height="wrap_content" android:id="@+id/placeEditText" android:layout_weight="0.5"/>
     </LinearLayout>
     <RadioGroup
-            android:layout_width="match_parent" android:orientation="horizontal"
+            android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
             android:layout_height="wrap_content">
         <RadioButton
                 android:text="나만보기"
