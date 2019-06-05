@@ -6,7 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:orientation="vertical"
         tools:context=".LoginActivity" android:background="@null">
-
     <LinearLayout
             android:orientation="horizontal" android:layout_weight="1"
             android:layout_width="match_parent"
@@ -31,30 +30,49 @@
             android:orientation="vertical" android:layout_weight="1" android:paddingTop="50dp"
             android:layout_width="wrap_content" android:layout_gravity="center_horizontal"
             android:layout_height="0dp">
-        <EditText
-                android:layout_width="236dp"
-                android:layout_height="47dp"
-                android:inputType="textPersonName"
-                android:text="" android:hint="id"
-                android:id="@+id/log_id"/>
-        <EditText
-                android:layout_width="236dp"
-                android:layout_height="47dp" android:hint="password"
-                android:inputType="textPassword"
-                android:id="@+id/log_pw"/>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+            <EditText
+                    android:layout_width="236dp"
+                    android:layout_height="47dp"
+                    android:inputType="textPersonName"
+                    android:text="" android:hint="id"
+                    android:background="#f0f0f0"
+                    android:id="@+id/log_id"/>
+            <EditText
+                    android:layout_width="236dp"
+                    android:layout_height="47dp" android:hint="password"
+                    android:inputType="textPassword"
+                    android:background="#f0f0f0"
+                    android:id="@+id/log_pw"/>
+        </LinearLayout>
+
         <LinearLayout
                 android:orientation="horizontal" android:layout_marginTop="50dp"
                 android:layout_width="wrap_content" android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content" >
-            <Button
-                    android:text="시작하기"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" android:onClick="OnBtnClick"
-                    android:id="@+id/btn_login" />
-            <Button
-                    android:text="가입하기"
-                    android:layout_width="wrap_content"  android:onClick="OnBtnClick"
-                    android:layout_height="64dp" android:id="@+id/btn_join1"/>
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:onClick="OnBtnClick"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/btn_login"
+                    android:background="@null"
+                    android:src="@drawable/start_btn"/>
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:onClick="OnBtnClick"
+                    android:id="@+id/btn_join1"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:src="@drawable/signup_btn"/>
         </LinearLayout>
     </LinearLayout>
 
