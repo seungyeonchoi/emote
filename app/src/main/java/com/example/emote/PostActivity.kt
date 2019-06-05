@@ -1,8 +1,11 @@
 package com.example.emote
 
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.SeekBar
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_post.*
 import java.text.SimpleDateFormat
@@ -15,6 +18,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var post:Post
     var uid="temp"
     var mode:String="writing"
+    var isRecord=false
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -24,20 +28,51 @@ class PostActivity : AppCompatActivity() {
         modeRadioGroup.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId != -1) {
                 when (checkedId) {
-                    R.id.writeModeBtn -> { //디비 등록
-                        mode="write"
+                    R.id.writeModeBtn -> {
+                        mode = "write"
                     }
-                    R.id.recordModeBtn -> { //디비 등록안해요 !  ! ! !
-                        mode="record"
+                    R.id.recordModeBtn -> {
+                        mode = "record"
+                        recordBtn.visibility = TextView.VISIBLE
                     }
                 }
             }
         }
+        recordBtn.setOnClickListener {
+            //alertDialog 띄우기
+//
+//            if(isRecord){
+//                Toast.makeText(this,"녹음이 저장되었습니다.",Toast.LENGTH_SHORT).show()
+//                isRecord=false
+//            }
+//            else{
+//                recordBtn.text="녹음중입니다.....\n종료하려면 화면을 누르세요"
+//                isRecord=true
+//                //
+//            }
+            //녹음기 실행하고
+            //
+            var RECORDED_FILE="/recorded.mp4";
+            val recorder=MediaRecorder()
+            recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
+            recorder.setOutputFile(RECORDED_FILE)
 
+            try{
+                Toast.makeText(this,"녹음을 시작합니다..",Toast.LENGTH_SHORT).show()
+                recorder.prepare()
+                recorder.start()
+            }catch (e:Exception) {
+                Log.e("SampleAudioRecorder", "Exception:" + e)
+            }
+            //alert 다이얼로그 띄우기
+
+        }
         submit.setOnClickListener {
             if(isFilled()) {
                 //db에 넣는 작업을 합시다 ,, ,,
-                
+
                 Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
             }
             else
@@ -93,6 +128,7 @@ class PostActivity : AppCompatActivity() {
         }
         else{ //녹음모드
 
+            //녹음해서 저장하고 title은 녹음 content는 파일저장우치/파일명/확장자, 무적권 나만보기 모드
         }
         return true
     }
