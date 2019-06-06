@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this,MainActivity::class.java))
             }
             R.id.btn_join1->{
-                startActivity(Intent(this,SigninActivity::class.java))
+                startActivity(Intent(this,PostActivity::class.java))
             }
         }
     }

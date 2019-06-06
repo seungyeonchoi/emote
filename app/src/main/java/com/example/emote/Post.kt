@@ -1,12 +1,5 @@
 package com.example.emote
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+data class Post(var emotionValue:ArrayList<Int>, var title:String, var contents:String, var place:String, var activity:String) {
 
-class Post : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_post)
-    }
 }
