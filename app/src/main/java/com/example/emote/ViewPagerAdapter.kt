@@ -19,12 +19,12 @@ class ViewPagerAdapter(fm: FragmentManager,val  tabCount:Int) : FragmentPagerAda
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            0 ->"나만의\n게시판"
-            1 ->"공유\n게시판"
-            2 ->"통계와\n프로필"
+            0 ->"My"
+            1 ->"Others"
+            2 ->"Profile"
             else -> null
         }
-
+        return null
     }
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         super.destroyItem(container, position, `object`)

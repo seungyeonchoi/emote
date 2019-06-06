@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity()
 
         adapter= ViewPagerAdapter(supportFragmentManager,layout_tab.tabCount)
         viewPager.adapter=adapter
-
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(p0: Int) {
 
