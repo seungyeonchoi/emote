@@ -7,11 +7,49 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".SelectEmoteActivity">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
-    <GridLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="5" android:rowCount="4" android:columnCount="3">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
+                  android:layout_weight="2" android:gravity="center" android:orientation="vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\n오늘의 감정을 선택하세요" android:textSize="18sp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="( 최대 3개 )" android:textSize="12sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="7" android:orientation="vertical">
+
+        <TableLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                     android:stretchColumns="0,1,2" android:layout_gravity="center"
+                     android:layout_marginLeft="20dp" android:layout_marginRight="20dp">
+
+            <TableRow android:weightSum="1">
+                <ImageView android:id="@+id/happiness_icon" android:scaleType="fitCenter"  android:layout_margin="20dp" android:src="@drawable/happiness_icon"/>
+                <ImageView android:id="@+id/anger_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/anger_icon"/>
+                <ImageView android:id="@+id/sadness_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/sadness_icon"/>
+            </TableRow>
+
+            <TableRow android:weightSum="1">
+                <ImageView android:id="@+id/excited_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/excited_icon"/>
+                <ImageView android:id="@+id/hmm_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/hmm_icon"/>
+                <ImageView android:id="@+id/love_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/love_icon"/>
+            </TableRow>
+
+            <TableRow android:weightSum="1">
+                <ImageView android:id="@+id/terrified_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/terrified_icon"/>
+                <ImageView android:id="@+id/proud_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/proud_icon"/>
+                <ImageView android:id="@+id/sick_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/sick_icon"/>
+            </TableRow>
+
+            <TableRow android:weightSum="1">
+                <ImageView android:id="@+id/annoyed_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/annoyed_icon"/>
+                <ImageView android:id="@+id/lonely_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/lonely_icon"/>
+                <ImageView android:id="@+id/dugeun_icon" android:scaleType="fitCenter" android:layout_margin="20dp" android:src="@drawable/dugeun_icon"/>
+            </TableRow>
 
 
+        </TableLayout>
 
-    </GridLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="2"/>
+        <ImageButton android:id="@+id/next_btn" android:layout_width="0dp" android:scaleType="fitCenter" android:layout_weight="1" android:layout_height="wrap_content"
+                     android:src="@drawable/next_btn" android:background="@null" android:padding="10dp" android:layout_marginRight="10dp"/>
+    </LinearLayout>
 </LinearLayout>

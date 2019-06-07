@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="drawable">
+        <item>@drawable/happiness_icon</item>
+        <item>@drawable/anger_icon</item>
+        <item>@drawable/sadness_icon</item>
+        <item>@drawable/excited_icon</item>
+        <item>@drawable/hmm_icon</item>
+        <item>@drawable/love_icon</item>
+        <item>@drawable/terrified_icon</item>
+        <item>@drawable/proud_icon</item>
+        <item>@drawable/sick_icon</item>
+        <item>@drawable/annoyed_icon</item>
+        <item>@drawable/lonely_icon</item>
+        <item>@drawable/dugeun_icon</item>
+    </array>
+    <array name="drawable2">
+        <item>@drawable/s_happiness</item>
+        <item>@drawable/s_anger</item>
+        <item>@drawable/s_sadness</item>
+        <item>@drawable/s_excited</item>
+        <item>@drawable/s_hmm</item>
+        <item>@drawable/s_love</item>
+        <item>@drawable/s_terrified</item>
+        <item>@drawable/s_proud</item>
+        <item>@drawable/s_sick</item>
+        <item>@drawable/s_annoyed</item>
+        <item>@drawable/s_lonely</item>
+        <item>@drawable/s_dugeun</item>
+    </array>
+</resources>
