@@ -44,6 +44,7 @@ class PostActivity : AppCompatActivity() {
                 }
             }
         }
+
         recordBtn.setOnClickListener {
 
             var RECORDED_FILE="/recorded.mp4";
