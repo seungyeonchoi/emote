@@ -1,6 +1,7 @@
 package com.example.emote
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -64,7 +65,10 @@ class Mypage : Fragment() {
         myBoardListview.layoutManager=layoutManager
         val adapter=myBoardAdapter()
         myBoardListview.adapter=adapter
-
+        myBoardBtn.setOnClickListener {
+            val intent=Intent(activity,SelectEmoteActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

@@ -10,8 +10,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.fragment_statistics.*
+import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,8 +39,7 @@ class Statistics : Fragment() {
     var emoView = arrayOf(
         stat_emo1,stat_emo2,stat_emo3,stat_emo4,stat_emo5
     )
-    lateinit var bitmap:Bitmap
-    lateinit var canvas:Canvas
+
 
 
     override fun onCreateView(
@@ -53,16 +54,18 @@ class Statistics : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         calculateEmo()
-        drawOnCanvas()
+        initLayout()
     }
-    fun drawOnCanvas(){
-        bitmap=Bitmap.createBitmap(960,800,Bitmap.Config.ARGB_8888)
-        canvas= Canvas(bitmap)
-        canvas.drawColor(Color.BLACK)
-        val paint= Paint()
-        canvas.drawLine(200f,499f,119f,129f,paint)
 
-
+    fun initLayout(){
+        for(i in R.id.checkbox01..R.id.checkbox03){//장소, 인물, 활동
+            val checkbox=activity!!.findViewById<CheckBox>(i)
+            checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
+                if(isChecked){
+                    //체크되면 무엇을 하면 좋을까요????
+                }
+            }
+        }
     }
     fun calculateEmo(){
         for(i in 0 until emoArrSize){
@@ -78,6 +81,11 @@ class Statistics : Fragment() {
                     max = emotionRatio[i][j]
                 }
             }
+            /*
+            for(i in R.id.stat_emo1 .. R.id.stat_emo5){
+                val imageView=activity!!.findViewById<ImageView>(i)
+                imageView.setImageResource(R.drawable.icon_1_b)
+            }*/
             stat_emo1.setImageResource(R.drawable.icon_1_b)
             stat_emo2.setImageResource(R.drawable.icon_1_w)
             stat_emo3.setImageResource(R.drawable.icon_2_b)
