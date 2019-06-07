@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:backgroundTint="#FBFCFA"
+        android:layout_width="400dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="25dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp" android:orientation="horizontal" android:paddingHorizontal="15dp" android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="match_parent" android:text="title" android:textSize="30sp" android:layout_marginRight="10dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="match_parent" android:id="@+id/mbCardTitle" android:gravity="center_vertical"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="150dp" android:layout_marginHorizontal="15dp" android:text="contents" android:id="@+id/mbCardContents"/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
