@@ -3,21 +3,25 @@ package com.example.emote
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.os.Environment
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.SeekBar
-import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_post.*
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
+
+
 class PostActivity : AppCompatActivity() {
-    val RECORD_REQUEST=1234
+    val PERMISSION_REQUEST=1234
 
     lateinit var spinArr:ArrayList<SeekBar>
     lateinit var post:Post
@@ -36,59 +40,111 @@ class PostActivity : AppCompatActivity() {
                 when (checkedId) {
                     R.id.writeModeBtn -> {
                         mode = "write"
+                        recordBtn.visibility = View.GONE
+                        submit.visibility= View.VISIBLE
+                        publicModeBtn.isEnabled=true
+                        emoteSeekBar1.isEnabled=true
+                        emoteSeekBar2.isEnabled=true
+                        emoteSeekBar3.isEnabled=true
                     }
                     R.id.recordModeBtn -> {
                         mode = "record"
-                        recordBtn.visibility = TextView.VISIBLE
+                        emoteSeekBar1.progress=0
+                        emoteSeekBar2.progress=0
+                        emoteSeekBar3.progress=0
+
+                        emoteSeekBar1.isEnabled=false
+                        emoteSeekBar2.isEnabled=false
+                        emoteSeekBar3.isEnabled=false
+                        recordBtn.visibility = View.VISIBLE
+                        submit.visibility= View.INVISIBLE
+                        publicModeBtn.isEnabled=false
                     }
                 }
             }
         }
 
         recordBtn.setOnClickListener {
-
-            var RECORDED_FILE="/recorded.mp4";
-            var recorder:MediaRecorder?=MediaRecorder()
-            recorder!!.reset()
-            recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
-            recorder.setOutputFile(RECORDED_FILE)
-
-            try{
-                Toast.makeText(this,"녹음을 시작합니다..",Toast.LENGTH_SHORT).show()
-                recorder.prepare()
-                recorder.start()
-            }catch (e:Exception) {
-                Log.e("SampleAudioRecorder", "Exception:" + e)
-            }
-            //alert 다이얼로그 띄우기
-            val builder= AlertDialog.Builder(this) //builder: 다이얼로그의 속성 설정만 해줌!
-            builder.setMessage("녹음을 끝내시겠습니까?")
-                .setTitle("녹음중 ...")
-
-            builder.setPositiveButton("저장"){ //오른쪽 버튼
-                    _,_-> //인자 2개라는 의미
-                if(recorder!=null) {
-                    recorder!!.stop()
-                    recorder!!.release()
-                    recorder=null
-                    Toast.makeText(this,"녹음이 저장되었습니다",Toast.LENGTH_SHORT).show()
+            val ftitle=titleEditText.text.toString()
+            if(ftitle.isNotEmpty()) {
+                titleEditText.text.clear()
+                var mFileName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/emote"
+                val dir = File(mFileName)
+                if (!dir.exists()) {
+                    dir.mkdir()
                 }
-            }
-            builder.setNegativeButton("취소"){ //왼쪽버튼
-                    dialog,_-> //인자 2개라는 의미
-                dialog.cancel()
-            }
+                val now = System.currentTimeMillis()
+                val date = Date(now)
+                val fName = SimpleDateFormat("yyyyMMdd").format(date) + ftitle
+                var num = 1
+                var rAddr = ""
+                while (true) {
+                    rAddr = mFileName + "/" + fName + "_" + num.toString() + ".m4A"
+                    val file = File(rAddr)
+                    if (file.exists()) {
+                        num++
+                    } else
+                        break
 
-            val dialog=builder.create() //찐으로 다이얼로그 만들어짐
-            dialog.show()
+                }
+
+                var recorder: MediaRecorder? = MediaRecorder()
+                recorder!!.reset()
+                recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
+                recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                recorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
+                recorder.setOutputFile(rAddr)
+
+                try {
+
+                    recorder.prepare()
+                    recorder.start()
+                    Toast.makeText(this, "녹음을 시작합니다..", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Log.e("SampleAudioRecorder", "Exception:" + e)
+                }
+                //alert 다이얼로그 띄우기
+                val builder = AlertDialog.Builder(this) //builder: 다이얼로그의 속성 설정만 해줌!
+                builder.setMessage("녹음을 끝내시겠습니까?")
+                    .setTitle(mFileName + "녹음중 ...")
+
+                builder.setPositiveButton("저장") { //오른쪽 버튼
+                        _, _ ->
+                    //인자 2개라는 의미
+                    if (recorder != null) {
+                        recorder!!.stop()
+                        recorder!!.release()
+                        recorder = null
+                        Toast.makeText(this, "녹음이 저장되었습니다", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                builder.setNegativeButton("취소") { //왼쪽버튼
+                        dialog, _ ->
+                    val file=File(rAddr)
+                    if(file.exists()){
+                        file.delete()
+                    }
+                    dialog.cancel()
+                }
+
+                val dialog = builder.create() //찐으로 다이얼로그 만들어짐
+                dialog.show()
+            }
+            else{
+                Toast.makeText(this,"제목을 입력해주세요!", Toast.LENGTH_SHORT).show()
+            }
 
         }
         submit.setOnClickListener {
             if(isFilled()) {
                 //db에 넣는 작업을 합시다 ,, ,,
-
+                titleEditText.text.clear()
+                contentsEditText.text.clear()
+                placeEditText.text.clear()
+                emoteSeekBar1.progress=0
+                emoteSeekBar2.progress=0
+                emoteSeekBar3.progress=0
+                activitySpin.setSelection(0)
                 Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
             }
             else
@@ -116,7 +172,7 @@ class PostActivity : AppCompatActivity() {
                 else
                     emotionValue.add(spinArr[i].progress) //감정 정도값이 아니라 기쁨/ 슬픔 같은 감정에 따른 값을 넘겨야함!
         }
-        if(mode=="writing"){
+        if(mode=="write"){
             title=titleEditText.text.toString()
             if(title=="")
                 return false
@@ -131,10 +187,10 @@ class PostActivity : AppCompatActivity() {
             publicRadioGroup.setOnCheckedChangeListener { group, checkedId ->
                 if (checkedId != -1) {
                     when (checkedId) {
-                        R.id.privateModeBtn -> { //디비 등록
+                        R.id.privateModeBtn -> {
                             public=false
                         }
-                        R.id.publicModeBtn -> { //디비 등록안해요 !  ! ! !
+                        R.id.publicModeBtn -> {
                             public=true
                         }
                     }
@@ -149,11 +205,11 @@ class PostActivity : AppCompatActivity() {
         return true
     }
     fun initPermission(){
-        var requestArr=arrayOf(android.Manifest.permission.RECORD_AUDIO)
+        var requestArr=arrayOf(android.Manifest.permission.RECORD_AUDIO,android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE)
         if(checkAppPermission(requestArr))
             Toast.makeText(this,"권한이 승인됨",Toast.LENGTH_SHORT).show()
         else
-            askPermission(requestArr,RECORD_REQUEST) //제일 처음엔 권한정보없으므로 자동으로 else로 넘어옴!
+            askPermission(requestArr,PERMISSION_REQUEST) //제일 처음엔 권한정보없으므로 자동으로 else로 넘어옴!
     }
 
     fun checkAppPermission(requestPermission: Array<String>): Boolean { //인자 : 요청하는 퍼미션 정보
@@ -174,7 +230,7 @@ class PostActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
-            RECORD_REQUEST -> {
+            PERMISSION_REQUEST -> {
                 if (checkAppPermission (permissions))
                 { // 퍼미션 동의했을 때 할 일
                     Toast.makeText(applicationContext,"권한이 승인됨",Toast.LENGTH_SHORT).show()
