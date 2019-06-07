@@ -20,6 +20,12 @@ class myBoardAdapter:RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(p0: myBoardAdapter.ViewHolder, p1: Int) {
+        /*
+        post array에서 받아와서
+         p0.title.text=postArrays.get(p1).title
+         p0.contents.text=postArrays.get(p1).contents
+
+        */
        p0.title.text="오늘기분짱"
         p0.contents.text="토트넘이 챔스 우승해서 기분이 최고당"
     }

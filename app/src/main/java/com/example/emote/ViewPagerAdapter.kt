@@ -12,25 +12,23 @@ class ViewPagerAdapter(fm: FragmentManager,val  tabCount:Int) : FragmentPagerAda
         return when(p0){
             0 ->Mypage()
             1 ->Emoteboard()
-            2 ->Statistics()
+            2 ->statistics()
             else -> null
         }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position){
-            0->  "MyPage"
-            1->  "감정 게시판"
-            2->  "통계"
-            else ->  ""
+        return when(position) {
+            0 ->"My"
+            1 ->"Others"
+            2 ->"Profile"
+            else -> null
         }
+        return null
     }
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         super.destroyItem(container, position, `object`)
         //Log.e("FragmentPagerAdapter", "destroyItem position : $position")
     }
-    override fun getCount(): Int {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        return tabCount
-    }
+    override fun getCount() = 3
 }

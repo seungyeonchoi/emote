@@ -1,12 +1,9 @@
 package com.example.emote
+/*
+* pid:전체 post중 번호: 기본값 -1 , 이후 db에 넣을 때? 바꿈
+*
+* */
+data class Post(var pid:String, var uid:String, var date:String, var pb:Boolean,var title:String,
+                var contents:String, var emotionValue:ArrayList<Int>,  var place:String, var activity:String, var heartCount:Int=0) {
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-
-class Post : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_post)
-    }
 }

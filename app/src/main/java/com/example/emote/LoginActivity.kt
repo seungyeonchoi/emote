@@ -15,10 +15,10 @@ class LoginActivity : AppCompatActivity() {
     fun OnBtnClick(view: View) {
         when(view.id){
             R.id.btn_login->{
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,MainActivity::class.java)) //post확인해보려고 이렇게 둠!
             }
             R.id.btn_join1->{
-                startActivity(Intent(this,SigninActivity::class.java))
+                startActivity(Intent(this,PostActivity::class.java))
             }
         }
     }

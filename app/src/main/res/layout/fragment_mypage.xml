@@ -15,4 +15,5 @@
         <Button android:id="@+id/myBoardBtn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="글쓰기" android:textSize="20sp"/>
     </LinearLayout>
 
+
 </FrameLayout>

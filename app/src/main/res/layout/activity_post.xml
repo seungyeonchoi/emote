@@ -5,35 +5,78 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:orientation="vertical"
-        tools:context=".Post">
+        tools:context=".PostActivity">
 
     <SeekBar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/seekBar" android:layout_weight="1"/>
+            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar1" android:layout_weight="1"/>
+    <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar2" android:layout_weight="1"/>
+    <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar3" android:layout_weight="1"/>
+
+    <RadioGroup
+            android:layout_width="match_parent" android:orientation="horizontal"
+            android:layout_height="wrap_content" android:id="@+id/modeRadioGroup">
+        <RadioButton
+                android:text="글쓰기"
+                android:layout_width="wrap_content" android:checked="true"
+                android:layout_height="wrap_content" android:id="@+id/writeModeBtn" android:layout_weight="1"/>
+        <RadioButton
+                android:text="녹음하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/recordModeBtn" android:layout_weight="1"/>
+    </RadioGroup>
     <EditText
             android:text="" android:hint="제목"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/editText1" android:layout_weight="1"/>
-    <EditText
+            android:layout_height="wrap_content" android:id="@+id/titleEditText" android:layout_weight="0.5"/>
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="내용"
-            android:inputType="textPersonName"
-            android:text=""
-            android:ems="10"
-            android:id="@+id/editText2" android:layout_weight="1"/>
-    <EditText
+            android:layout_height="wrap_content" android:layout_weight="4">
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:hint="내용"
+                android:inputType="text"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/contentsEditText" />
+        <TextView
+                android:text="녹음시작" android:gravity="center"
+                android:layout_width="match_parent" android:background="@color/colorAccent" android:visibility="gone"
+                android:layout_height="match_parent" android:id="@+id/recordBtn"/>
+    </FrameLayout>
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText" android:layout_weight="1"/>
-    <EditText
+            android:layout_height="wrap_content" android:layout_weight="0.5">
+        <Spinner
+                android:layout_width="match_parent" android:spinnerMode="dialog" android:entries="@array/spin_arr"
+                android:prompt="@string/spin_prompt"
+                android:layout_height="wrap_content" android:id="@+id/activitySpin" android:layout_weight="0.5"/>
+        <EditText
+                android:text="" android:hint="장소"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/placeEditText" android:layout_weight="0.5"/>
+    </LinearLayout>
+        <RadioGroup
+                android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
+                android:layout_height="wrap_content">
+            <RadioButton
+                    android:text="나만보기"
+                    android:layout_width="wrap_content" android:checked="true"
+                    android:layout_height="wrap_content" android:id="@+id/privateModeBtn" android:layout_weight="1"/>
+            <RadioButton
+                    android:text="전체공개"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/publicModeBtn" android:layout_weight="1"/>
+        </RadioGroup>
+    <Button
+            android:text="Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText3" android:layout_weight="1"/>
+            android:layout_height="wrap_content" android:id="@+id/submit" android:layout_weight="0.5"/>
     //ems =10 : 10글자의 너비를 가진 edittext
 </LinearLayout>
