@@ -62,18 +62,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/placeEditText" android:layout_weight="0.5"/>
     </LinearLayout>
-    <RadioGroup
-            android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
-            android:layout_height="wrap_content">
-        <RadioButton
-                android:text="나만보기"
-                android:layout_width="wrap_content" android:checked="true"
-                android:layout_height="wrap_content" android:id="@+id/privateModeBtn" android:layout_weight="1"/>
-        <RadioButton
-                android:text="전체공개"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/publicModeBtn" android:layout_weight="1"/>
-    </RadioGroup>
+        <RadioGroup
+                android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
+                android:layout_height="wrap_content">
+            <RadioButton
+                    android:text="나만보기"
+                    android:layout_width="wrap_content" android:checked="true"
+                    android:layout_height="wrap_content" android:id="@+id/privateModeBtn" android:layout_weight="1"/>
+            <RadioButton
+                    android:text="전체공개"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/publicModeBtn" android:layout_weight="1"/>
+        </RadioGroup>
     <Button
             android:text="Button"
             android:layout_width="match_parent"
