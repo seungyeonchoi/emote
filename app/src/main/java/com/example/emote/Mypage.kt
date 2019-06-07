@@ -4,9 +4,16 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_my_board.*
+import kotlinx.android.synthetic.main.fragment_mypage.*
+import kotlinx.android.synthetic.main.fragment_mypage.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,7 +52,24 @@ class Mypage : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_mypage, container, false)
+
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+              super.onActivityCreated(savedInstanceState)
+
+
+        val myBoardListview=activity!!.findViewById<RecyclerView>(R.id.myBoardListview)
+        val layoutManager=LinearLayoutManager(activity)
+        Log.v("nnnnnn",layoutManager.toString())
+        myBoardListview.layoutManager=layoutManager
+        val adapter=myBoardAdapter()
+        myBoardListview.adapter=adapter
+
+
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {

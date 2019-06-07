@@ -6,10 +6,15 @@
              tools:context=".Mypage">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="마이페이지!!!!"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/myBoardListview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <Button android:id="@+id/myBoardBtn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="글쓰기" android:textSize="20sp"/>
+    </LinearLayout>
 
 
 </FrameLayout>
+
