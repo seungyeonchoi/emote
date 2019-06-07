@@ -1,7 +1,11 @@
 package com.example.emote
 
+import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.SeekBar
@@ -13,6 +17,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class PostActivity : AppCompatActivity() {
+    val RECORD_REQUEST=1234
 
     lateinit var spinArr:ArrayList<SeekBar>
     lateinit var post:Post
@@ -23,6 +28,7 @@ class PostActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
+        initPermission()
         spinArr= arrayListOf(emoteSeekBar1,emoteSeekBar2,emoteSeekBar3)
 
         modeRadioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -39,21 +45,10 @@ class PostActivity : AppCompatActivity() {
             }
         }
         recordBtn.setOnClickListener {
-            //alertDialog 띄우기
-//
-//            if(isRecord){
-//                Toast.makeText(this,"녹음이 저장되었습니다.",Toast.LENGTH_SHORT).show()
-//                isRecord=false
-//            }
-//            else{
-//                recordBtn.text="녹음중입니다.....\n종료하려면 화면을 누르세요"
-//                isRecord=true
-//                //
-//            }
-            //녹음기 실행하고
-            //
+
             var RECORDED_FILE="/recorded.mp4";
-            val recorder=MediaRecorder()
+            var recorder:MediaRecorder?=MediaRecorder()
+            recorder!!.reset()
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
             recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             recorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
@@ -67,6 +62,26 @@ class PostActivity : AppCompatActivity() {
                 Log.e("SampleAudioRecorder", "Exception:" + e)
             }
             //alert 다이얼로그 띄우기
+            val builder= AlertDialog.Builder(this) //builder: 다이얼로그의 속성 설정만 해줌!
+            builder.setMessage("녹음을 끝내시겠습니까?")
+                .setTitle("녹음중 ...")
+
+            builder.setPositiveButton("저장"){ //오른쪽 버튼
+                    _,_-> //인자 2개라는 의미
+                if(recorder!=null) {
+                    recorder!!.stop()
+                    recorder!!.release()
+                    recorder=null
+                    Toast.makeText(this,"녹음이 저장되었습니다",Toast.LENGTH_SHORT).show()
+                }
+            }
+            builder.setNegativeButton("취소"){ //왼쪽버튼
+                    dialog,_-> //인자 2개라는 의미
+                dialog.cancel()
+            }
+
+            val dialog=builder.create() //찐으로 다이얼로그 만들어짐
+            dialog.show()
 
         }
         submit.setOnClickListener {
@@ -132,5 +147,45 @@ class PostActivity : AppCompatActivity() {
         }
         return true
     }
+    fun initPermission(){
+        var requestArr=arrayOf(android.Manifest.permission.RECORD_AUDIO)
+        if(checkAppPermission(requestArr))
+            Toast.makeText(this,"권한이 승인됨",Toast.LENGTH_SHORT).show()
+        else
+            askPermission(requestArr,RECORD_REQUEST) //제일 처음엔 권한정보없으므로 자동으로 else로 넘어옴!
+    }
+
+    fun checkAppPermission(requestPermission: Array<String>): Boolean { //인자 : 요청하는 퍼미션 정보
+        val requestResult = BooleanArray(requestPermission.size)
+        for (i in requestResult. indices ) {
+            requestResult[i] = ContextCompat.checkSelfPermission( this, requestPermission[i] ) == PackageManager. PERMISSION_GRANTED
+            if (!requestResult[i]) {
+                return false //다시 request 함 ! (사용자한테 다시 퍼미션 허락 요구)
+            }
+        }
+        return true
+    }//요청하는 퍼미션이 전부 체크되어야 true 됨!(중간에 사용자가 하나라도 거부하면 false 로 종료됨ㅎㅂㅎ)
+
+    fun askPermission(requestPermission: Array<String>, REQ_PERMISSION: Int) {
+        ActivityCompat.requestPermissions( this, requestPermission, REQ_PERMISSION )
+    } // askPermission
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+            RECORD_REQUEST -> {
+                if (checkAppPermission (permissions))
+                { // 퍼미션 동의했을 때 할 일
+                    Toast.makeText(applicationContext,"권한이 승인됨",Toast.LENGTH_SHORT).show()
+                }
+                else { // 퍼미션 동의하지 않았을 때 할일 // 앱종료 finish();
+                    Toast.makeText(applicationContext,"권한이 승인안됨", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+            }
+        }
+
+    }
+
 
 }
