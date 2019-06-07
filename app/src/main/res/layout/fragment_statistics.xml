@@ -38,6 +38,20 @@
                    android:layout_marginLeft="5dp"/>
     </LinearLayout>
     <ImageView android:layout_width="match_parent" android:layout_height="300dp" android:id="@+id/graphCanvas"/>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+    />
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center" android:paddingLeft="60dp">
+        <CheckBox android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:id="@+id/checkbox01"  android:text="장소"/>
+        <CheckBox android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" android:id="@+id/checkbox02" android:text="인물"/>
+        <CheckBox android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" android:id="@+id/checkbox03" android:text="활동"/>
+    </LinearLayout>
+
+
 
 </LinearLayout>
 

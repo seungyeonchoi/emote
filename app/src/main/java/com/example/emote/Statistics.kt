@@ -10,8 +10,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.fragment_statistics.*
+import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,9 +39,8 @@ class Statistics : Fragment() {
     var emoView = arrayOf(
         stat_emo1,stat_emo2,stat_emo3,stat_emo4,stat_emo5
     )
-    lateinit var bitmap:Bitmap
-    lateinit var canvas:Canvas
 
+//******************감정 정보 불러오기*********************************
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,16 +54,18 @@ class Statistics : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         calculateEmo()
-        drawOnCanvas()
+        initLayout()
     }
-    fun drawOnCanvas(){
-        bitmap=Bitmap.createBitmap(960,800,Bitmap.Config.ARGB_8888)
-        canvas= Canvas(bitmap)
-        canvas.drawColor(Color.BLACK)
-        val paint= Paint()
-        canvas.drawLine(200f,499f,119f,129f,paint)
 
-
+    fun initLayout(){
+        for(i in R.id.checkbox01..R.id.checkbox03){//장소, 인물, 활동
+            val checkbox=activity!!.findViewById<CheckBox>(i)
+            checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
+                if(isChecked){
+                    //체크되면 무엇을 하면 좋을까요????
+                }
+            }
+        }
     }
     fun calculateEmo(){
         for(i in 0 until emoArrSize){
@@ -78,17 +81,37 @@ class Statistics : Fragment() {
                     max = emotionRatio[i][j]
                 }
             }
-            stat_emo1.setImageResource(R.drawable.icon_1_b)
-            stat_emo2.setImageResource(R.drawable.icon_1_w)
-            stat_emo3.setImageResource(R.drawable.icon_2_b)
-            stat_emo4.setImageResource(R.drawable.icon_2_w)
-            stat_emo5.setImageResource(R.drawable.icon_3_b)
-           // emoView[i].setImageResource(R.drawable.icon_1_b)
+            /*
+            for(i in R.id.stat_emo1 .. R.id.stat_emo5){
+                val imageView=activity!!.findViewById<ImageView>(i)
+                imageView.setImageResource(R.drawable.icon_1_b)
+            }*/
+                //topEmoArr별로 이모티콘 세팅
+            for(i in R.id.stat_emo1..R.id.stat_emo5){
+                val imageView=activity!!.findViewById<ImageView>(i)
+                var index=0
+                when(topEmoArr[index]){
+                    "hmm"->{imageView.setImageResource(R.drawable.hmm_icon)}
+                    "anger"->{imageView.setImageResource(R.drawable.anger_icon)}
+                    "dugeun"->{imageView.setImageResource(R.drawable.dugeun_icon)}
+                    "excited"->{imageView.setImageResource(R.drawable.excited_icon)}
+                    "happiness"->{imageView.setImageResource(R.drawable.happiness_icon)}
+                    "love"->{imageView.setImageResource(R.drawable.love_icon)}
+                    "lonely"->{imageView.setImageResource(R.drawable.lonely_icon)}
+                    "proud"->{imageView.setImageResource(R.drawable.proud_icon)}
+                    "sad"->{imageView.setImageResource(R.drawable.sadness_icon)}
+                    "terrified"->{imageView.setImageResource(R.drawable.terrified_icon)}
+                    "annoyed"->{imageView.setImageResource(R.drawable.annoyed_icon)}
+                }
+
+            }
+
         }
 
         for(i in 0..3){
             // emotionScore[i]부터 emotionScore[i+1]까지 선 긋기
         }
+
 
     }
 }

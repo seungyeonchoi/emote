@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
     fun OnBtnClick(view: View) {
         when(view.id){
             R.id.btn_login->{
-                startActivity(Intent(this,SelectEmoteActivity::class.java)) //selectemote확인해보셈 ~!~!
+                startActivity(Intent(this,MainActivity::class.java)) //selectemote확인해보셈 ~!~!
             }
             R.id.btn_join1->{
                 startActivity(Intent(this,MainActivity::class.java))
