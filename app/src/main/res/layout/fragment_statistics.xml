@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent" tools:layout_editor_absoluteY="25dp">
+<LinearLayout
+             android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/statisticsTitle"
+            android:text="5일간의 감정을 기록해보아요!"
+            android:textSize="27sp"
+    />
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="364dp"
             android:layout_height="85dp"
             android:id="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.428"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:layout_marginTop="24dp">
         <ImageView android:id="@+id/stat_emo1" android:layout_width="60dp"
                    android:layout_height="60dp"
@@ -32,11 +37,5 @@
                    android:layout_height="60dp"
                    android:layout_marginLeft="5dp"/>
     </LinearLayout>
-    <ImageView
-            android:layout_width="195dp"
-            android:layout_height="0dp" app:srcCompat="@drawable/ic_launcher_background"
-            android:id="@+id/imageView" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+
