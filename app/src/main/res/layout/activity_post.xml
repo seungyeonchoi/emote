@@ -7,28 +7,46 @@
         android:layout_height="match_parent" android:orientation="vertical"
         tools:context=".PostActivity">
 
-    <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar1" android:layout_weight="1"/>
-    <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar2" android:layout_weight="1"/>
-    <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/emoteSeekBar3" android:layout_weight="1"/>
+    <LinearLayout android:orientation="vertical"
+                  android:transitionName="감정지수" android:layout_width="match_parent" android:layout_height="0dp"
+                  android:paddingLeft="20dp" android:paddingRight="20dp" android:layout_weight="2">
 
-    <RadioGroup
-            android:layout_width="match_parent" android:orientation="horizontal"
-            android:layout_height="wrap_content" android:id="@+id/modeRadioGroup">
-        <RadioButton
-                android:text="글쓰기"
-                android:layout_width="wrap_content" android:checked="true"
-                android:layout_height="wrap_content" android:id="@+id/writeModeBtn" android:layout_weight="1"/>
-        <RadioButton
-                android:text="녹음하기"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/recordModeBtn" android:layout_weight="1"/>
-    </RadioGroup>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/emoteSeekBar1" android:layout_weight="1"/>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/emoteSeekBar2" android:layout_weight="1"/>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/emoteSeekBar3" android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+                  android:paddingLeft="20dp" android:padding="20dp">
+
+        <RadioGroup
+                android:layout_width="match_parent" android:orientation="horizontal"
+                android:layout_height="wrap_content" android:id="@+id/modeRadioGroup">
+            <RadioButton
+                    android:text="글쓰기"
+                    android:layout_width="wrap_content" android:checked="true"
+                    android:layout_height="wrap_content" android:id="@+id/writeModeBtn" android:layout_weight="1"/>
+            <RadioButton
+                    android:text="녹음하기"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/recordModeBtn" android:layout_weight="1"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+
+
+
     <EditText
             android:text="" android:hint="제목"
             android:layout_width="match_parent"
