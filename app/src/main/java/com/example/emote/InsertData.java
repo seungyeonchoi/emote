@@ -1,9 +1,8 @@
-package com.example.kotlin_prac;
+package com.example.emote;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

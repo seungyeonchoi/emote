@@ -6,32 +6,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:orientation="vertical"
         tools:context=".MainActivity">
-
-    <android.support.design.widget.TabLayout
+    <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp" app:tabMode="fixed"
-            android:id="@+id/layout_tab"
-            app:tabTextColor="#ffffff"
-            app:tabSelectedTextColor="#706f6f"
-            app:tabIndicatorColor="#706f6f"
-            app:tabRippleColor="#efcfd3">
+            android:layout_height="wrap_content"
+            android:theme="@style/TabTheme">
 
-        <android.support.design.widget.TabItem
-                android:icon="@drawable/myboard_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나만의\n게시판"/>
+        <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                android:id="@+id/layout_tab">
+        </android.support.design.widget.TabLayout>
 
-        <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="공유\n게시판"/>
-
-        <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="프로필\n통계"/>
-    </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
     <android.support.v4.view.ViewPager
     android:id="@+id/viewPager"
     android:layout_width="match_parent"
