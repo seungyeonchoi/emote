@@ -172,7 +172,7 @@ class PostActivity : AppCompatActivity() {
                 else
                     emotionValue.add(spinArr[i].progress) //감정 정도값이 아니라 기쁨/ 슬픔 같은 감정에 따른 값을 넘겨야함!
         }
-        if(mode=="writing"){
+        if(mode=="write"){
             title=titleEditText.text.toString()
             if(title=="")
                 return false
