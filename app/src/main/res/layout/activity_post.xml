@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content" android:id="@+id/publicModeBtn" android:layout_weight="1"/>
         </RadioGroup>
     <Button
-            android:text="Button"
+            android:text="저장하기"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/submit" android:layout_weight="0.5"/>
     //ems =10 : 10글자의 너비를 가진 edittext
