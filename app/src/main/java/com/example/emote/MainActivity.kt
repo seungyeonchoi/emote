@@ -20,18 +20,7 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
-        /* 데이터 베이스 관련 
-            select.
-            val result = DB().getPostsByQuery("pid = 1") // result에 List<Post> 
-            result?.forEach { Log.d("result : ", "${it.title}") }
-        */
-        /*
-            객체 선언후 insert. 빈곳은 안채워도 됨
-            val user = DB.User("","01001101110", "0", "12321", "0")
-            val post = DB.Post("","1", "", "내ㅐㅐ용", "새천년관", "3", "title", "2", "1")
-            val emotion = DB.Emotion("1","1", "100")
-            DB().insert(post)
-        */
+ 
     }
 
     fun init(){
