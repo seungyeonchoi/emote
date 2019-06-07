@@ -9,6 +9,7 @@ import android.widget.TextView
 
 class myBoardAdapter:RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
 
+    val db=DB()
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): myBoardAdapter.ViewHolder {
         val v=LayoutInflater.from(p0.context).inflate(R.layout.board_card,p0,false)
         Log.i("doing","boardAdapter진입")
@@ -26,8 +27,10 @@ class myBoardAdapter:RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
          p0.contents.text=postArrays.get(p1).contents
 
         */
+      //  val str=db.getPosts()!!.get(0).contents
+        //p0.contents.text=str
         p0.title.text="오늘기분짱"
-        p0.contents.text="토트넘이 챔스 우승해서 기분이 최고당"
+       p0.contents.text="토트넘이 챔스 우승해서 기분이 최고당"
     }
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var title:TextView

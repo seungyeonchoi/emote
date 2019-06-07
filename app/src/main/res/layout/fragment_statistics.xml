@@ -37,5 +37,7 @@
                    android:layout_height="60dp"
                    android:layout_marginLeft="5dp"/>
     </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="300dp" android:id="@+id/graphCanvas"/>
+
 </LinearLayout>
 

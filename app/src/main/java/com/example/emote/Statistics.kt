@@ -1,6 +1,10 @@
 package com.example.emote
 
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -33,6 +37,9 @@ class Statistics : Fragment() {
     var emoView = arrayOf(
         stat_emo1,stat_emo2,stat_emo3,stat_emo4,stat_emo5
     )
+    lateinit var bitmap:Bitmap
+    lateinit var canvas:Canvas
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +53,16 @@ class Statistics : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         calculateEmo()
+        drawOnCanvas()
+    }
+    fun drawOnCanvas(){
+        bitmap=Bitmap.createBitmap(960,800,Bitmap.Config.ARGB_8888)
+        canvas= Canvas(bitmap)
+        canvas.drawColor(Color.BLACK)
+        val paint= Paint()
+        canvas.drawLine(200f,499f,119f,129f,paint)
+
+
     }
     fun calculateEmo(){
         for(i in 0 until emoArrSize){
