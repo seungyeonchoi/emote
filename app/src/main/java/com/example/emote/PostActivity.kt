@@ -46,6 +46,7 @@ class PostActivity : AppCompatActivity() {
                         emoteSeekBar1.isEnabled=true
                         emoteSeekBar2.isEnabled=true
                         emoteSeekBar3.isEnabled=true
+                        contentsEditText.visibility=View.VISIBLE
                     }
                     R.id.recordModeBtn -> {
                         mode = "record"
@@ -57,8 +58,9 @@ class PostActivity : AppCompatActivity() {
                         emoteSeekBar2.isEnabled=false
                         emoteSeekBar3.isEnabled=false
                         recordBtn.visibility = View.VISIBLE
-                        submit.visibility= View.INVISIBLE
+                        submit.visibility= View.VISIBLE
                         publicModeBtn.isEnabled=false
+                        contentsEditText.visibility=View.INVISIBLE
                     }
                 }
             }
