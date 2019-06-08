@@ -13,27 +13,32 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
+                android:gravity="center"
                 android:layout_height="0dp" android:layout_weight="3">
-            <Button
-                    android:text="" android:onClick="OnBtnClick"
-                    android:layout_width="46dp" android:background="#00ff0000"
-                    android:layout_height="36dp"
-                    android:id="@+id/btn_back"/>
+
+            <ImageView
+                    android:layout_marginTop="40dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:src="@drawable/signin"/>
+
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content" android:layout_gravity="center_horizontal"
                 android:layout_height="0dp" android:layout_weight="2">
             <EditText
-                    android:layout_width="236dp"
-                    android:layout_height="47dp"
-                    android:inputType="textPersonName" android:hint="id"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:inputType="textPersonName" android:hint="  name"
                     android:text=""
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginBottom="10dp"
                     android:id="@+id/sign_id"/>
             <EditText
-                    android:layout_width="236dp"
-                    android:layout_height="47dp" android:hint="password"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp" android:hint="  number"
                     android:inputType="textPassword" android:layout_marginBottom="25dp"
+                    android:background="@color/colorPrimaryDark"
                     android:id="@+id/sign_pw"/>
             <LinearLayout
                     android:layout_width="match_parent" android:layout_height="match_parent"
@@ -59,14 +64,15 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-            android:orientation="vertical" android:layout_weight="1" android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
+            android:orientation="vertical" android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="200dp"
             android:layout_height="0dp">
         <ImageButton
                 android:onClick="OnBtnClick"
                 android:layout_width="wrap_content"
                 android:src="@drawable/signup_btn" android:background="@null"
-                android:padding="20dp"
+                android:padding="40dp" android:scaleType="fitCenter"
                 android:layout_height="wrap_content" android:id="@+id/btn_join2"/>
     </LinearLayout>
 </LinearLayout>

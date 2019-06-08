@@ -14,10 +14,6 @@ class SigninActivity : AppCompatActivity() {
     }
     fun OnBtnClick(view: View) {
         when(view.id){
-            R.id.btn_back->{
-                startActivity(Intent(this,LoginActivity::class.java))
-                finish()
-            }
             R.id.btn_join2->{
                 startActivity(Intent(this,LoginActivity::class.java))
                 finish()
