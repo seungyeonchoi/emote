@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this,MainActivity::class.java)) //selectemote확인해보셈 ~!~!
             }
             R.id.btn_join1->{
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,SigninActivity::class.java))
             }
         }
     }

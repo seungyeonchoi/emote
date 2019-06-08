@@ -12,31 +12,69 @@
                   android:transitionName="감정지수" android:layout_width="match_parent" android:layout_height="0dp"
                   android:layout_marginTop="20dp" android:paddingLeft="20dp" android:paddingRight="20dp" android:layout_weight="2">
 
-        <SeekBar
-                android:max="10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:thumb="@drawable/seekbar_thumb"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:id="@+id/emoteSeekBar1" android:layout_weight="1"/>
-        <SeekBar
-                android:max="10"
-                android:thumb="@drawable/seekbar_thumb"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/emoteSeekBar2" android:layout_weight="1"/>
-        <SeekBar
-                android:max="10"
-                android:thumb="@drawable/seekbar_thumb"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/emoteSeekBar3" android:layout_weight="1"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="horizontal" android:layout_weight="1">
+
+            <ImageView
+                    android:id="@+id/emotion_1" android:padding="5dp"
+                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
+                    android:scaleType="fitCenter" android:src="@drawable/hmm_icon" android:layout_weight="1"/>
+            <SeekBar
+                    android:max="10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:layout_gravity="center"
+                    android:id="@+id/emoteSeekBar1" android:layout_weight="7"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="horizontal" android:layout_weight="1">
+
+            <ImageView
+                    android:id="@+id/emotion_2" android:padding="5dp"
+                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
+                    android:scaleType="fitCenter" android:src="@drawable/lonely_icon" android:layout_weight="1"/>
+            <SeekBar
+                    android:max="10"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" android:id="@+id/emoteSeekBar2" android:layout_weight="7"/>
+        </LinearLayout>
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="horizontal" android:layout_weight="1">
+
+            <ImageView
+                    android:id="@+id/emotion_3" android:padding="5dp"
+                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
+                    android:scaleType="fitCenter" android:src="@drawable/anger_icon" android:layout_weight="1"/>
+            <SeekBar
+                    android:max="10"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" android:id="@+id/emoteSeekBar3" android:layout_weight="7"/>
+
+        </LinearLayout>
+
+
+
+
+
+
 
     </LinearLayout>
 
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
-                  android:paddingLeft="60dp" android:paddingRight="60dp" android:gravity="center">
+                  android:paddingLeft="70dp" android:paddingRight="70dp" android:gravity="center">
 
         <RadioGroup
                 android:layout_width="match_parent" android:orientation="horizontal"
@@ -102,7 +140,7 @@
     </LinearLayout>
 
     <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
-                  android:paddingLeft="60dp" android:paddingRight="60dp"
+                  android:paddingLeft="70dp" android:paddingRight="70dp"
                   android:layout_height="0dp" android:layout_weight="1" android:gravity="center">
 
         <RadioGroup
