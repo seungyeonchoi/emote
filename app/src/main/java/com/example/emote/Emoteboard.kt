@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -64,6 +65,13 @@ class Emoteboard : Fragment() {
         listener = null
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val listView=activity!!.findViewById<ListView>(R.id.emoteboardList)
+        val adapter = myBoardAdapter()
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -98,5 +106,9 @@ class Emoteboard : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
+        override fun equals(other: Any?): Boolean {
+            return super.equals(other)
+        }
     }
 }

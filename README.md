@@ -10,7 +10,7 @@
    uid, tel, sad, pw, caution
   Post
    pid, pb, date, contents place, heart_count, title, activity, uid
-  Emotion
+  emotoin_object
    eid, pid, percent
   Enames
    eid, ename
@@ -22,11 +22,11 @@ Post에 글을 쓸 때 emotion에 해당 pid, eid를 추가하는 구조임.
 ```
   val post = DB.Post("","1", "", "내ㅐㅐ용", "새천년관", "3", "title", "2", "1")
   DB().insert(post)
-  val emotion = DB.Emotion("1","2", "100")
+  val emotion = DB.emotoin_object("1","2", "100")
   DB().insert(emtion)
-  val emotion = DB.Emotion("1","3", "100")
+  val emotion = DB.emotoin_object("1","3", "100")
   DB().insert(emtion)
-  val emotion = DB.Emotion("1","5", "100")
+  val emotion = DB.emotoin_object("1","5", "100")
   DB().insert(emtion)
 ```
 
@@ -42,14 +42,14 @@ Post에 글을 쓸 때 emotion에 해당 pid, eid를 추가하는 구조임.
   class User(val uid : String,val tel : String, val sad : String, val pw : String, val caution  : String)
   class Post(val pid : String,val pb : String, val date : String, val contents : String, val place  : String,
                      val heart_count  : String, val title  : String, val activity  : String, val uid  : String)
-  class Emotion(val eid : String,val pid : String, val percent : String)
+  class emotoin_object(val eid : String,val pid : String, val percent : String)
 ```    
 삽입.
 빈 곳은 채워 넣을 필요 없음. ("")
 ```
   val user = DB.User("","01001101110", "0", "12321", "0")
   val post = DB.Post("","1", "", "내ㅐㅐ용", "새천년관", "3", "title", "2", "1")
-  val emotion = DB.Emotion("1","1", "100")
+  val emotion = DB.emotoin_object("1","1", "100")
   DB().insert(post)
 ```    
 emotion을 넣으면 eid의 감정이름, post를 넣으면 activity의 활동 이름을 String으로 반환함
