@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import kotlinx.android.synthetic.main.fragment_emoteboard.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -67,9 +68,8 @@ class Emoteboard : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val listView=activity!!.findViewById<ListView>(R.id.emoteboardList)
-        val adapter = myBoardAdapter()
-
+        //val item = Array(12, {i-> i})
+        emoteboardList.adapter = boardArrayAdapter(context, 0)
     }
 
     /**
