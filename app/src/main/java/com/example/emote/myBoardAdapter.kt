@@ -61,6 +61,7 @@ class myBoardAdapter(val items:List<DB.Post>)
         //userid에 맞는 post list가 items 입니다.
         p0.title.text=items.get(p1).title
         p0.contents.text=items.get(p1).contents
+        p0.mbCardTime.text=items.get(p1).date
 
         val emtListforPost=db.getEmotion(items.get(p1).pid.toInt())
         for(i  in 0..emtListforPost!!.size){
@@ -69,12 +70,15 @@ class myBoardAdapter(val items:List<DB.Post>)
         p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
         p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
         }
+
          ****************************************/
+
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView
         var contents: TextView
+        var mbCardTime:TextView
         var trashBtn: ImageView
         var mbCardEmote1: ImageView
         var mbCardEmote1_Stat: TextView
@@ -86,6 +90,7 @@ class myBoardAdapter(val items:List<DB.Post>)
         init {
             title = itemView.findViewById(R.id.mbCardTitle)
             contents = itemView.findViewById(R.id.mbCardContents)
+            mbCardTime=itemView.findViewById(R.id.mbCardTime)
             mbCardEmote1 = itemView.findViewById(R.id.mbCardEmote1)
             mbCardEmote1_Stat = itemView.findViewById(R.id.mbCardEmote2_Stat)
             mbCardEmote2 = itemView.findViewById(R.id.mbCardEmote2)
