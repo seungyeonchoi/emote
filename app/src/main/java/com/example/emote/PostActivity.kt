@@ -19,7 +19,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-
 class PostActivity : AppCompatActivity() {
     val PERMISSION_REQUEST=1234
 
@@ -27,13 +26,22 @@ class PostActivity : AppCompatActivity() {
     lateinit var post:Post
     var uid="temp"
     var mode:String="writing"
-    var isRecord=false
+   var selectedEmote= mutableListOf<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         initPermission()
         spinArr= arrayListOf(emoteSeekBar1,emoteSeekBar2,emoteSeekBar3)
+        val i=intent
+        for(j in 1 .. 3){
+           if(i.hasExtra("emotion"+j.toString())){
+               selectedEmote.add(i.getIntExtra("emotion"+j,-1))
+           }
+            else{
+               spinArr[j-1].isEnabled=false
+           }
+        }
 
         modeRadioGroup.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId != -1) {
@@ -43,9 +51,12 @@ class PostActivity : AppCompatActivity() {
                         recordBtn.visibility = View.GONE
                         submit.visibility= View.VISIBLE
                         publicModeBtn.isEnabled=true
-                        emoteSeekBar1.isEnabled=true
-                        emoteSeekBar2.isEnabled=true
-                        emoteSeekBar3.isEnabled=true
+                        var mCount=0
+                        for(i in selectedEmote){
+                            if(i!=-1) {
+                                spinArr[mCount++].isEnabled = true
+                            }
+                        }
                         contentsEditText.visibility=View.VISIBLE
                     }
                     R.id.recordModeBtn -> {
@@ -108,7 +119,7 @@ class PostActivity : AppCompatActivity() {
                 //alert 다이얼로그 띄우기
                 val builder = AlertDialog.Builder(this) //builder: 다이얼로그의 속성 설정만 해줌!
                 builder.setMessage("녹음을 끝내시겠습니까?")
-                    .setTitle(mFileName + "녹음중 ...")
+                    .setTitle("녹음중 ...")
 
                 builder.setPositiveButton("저장") { //오른쪽 버튼
                         _, _ ->
@@ -233,11 +244,8 @@ class PostActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
             PERMISSION_REQUEST -> {
-                if (checkAppPermission (permissions))
-                { // 퍼미션 동의했을 때 할 일
-                    Toast.makeText(applicationContext,"권한이 승인됨",Toast.LENGTH_SHORT).show()
-                }
-                else { // 퍼미션 동의하지 않았을 때 할일 // 앱종료 finish();
+                if (!checkAppPermission (permissions))
+                { // 퍼미션 동의하지 않았을 때 할일 // 앱종료 finish();
                     Toast.makeText(applicationContext,"권한이 승인안됨", Toast.LENGTH_SHORT).show()
                     finish()
                 }

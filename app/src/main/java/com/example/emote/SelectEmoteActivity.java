@@ -2,9 +2,9 @@ package com.example.emote;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.media.Image;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,9 +42,9 @@ public class SelectEmoteActivity extends AppCompatActivity {
         emoteArray[11] = (ImageView)findViewById(R.id.dugeun_icon);
 
         //emotestat배열 초기화, 0은 선택 안된 상태 1은 선택 된 상태
-        for (int i=0; i<12; i++)
+        for (int i=0; i<12; i++) {
             emoteStatArray[i] = 0;
-
+        }
         defaultArray = getApplicationContext().getResources().obtainTypedArray(R.array.drawable);
         selectedArray = getApplicationContext().getResources().obtainTypedArray(R.array.drawable2);
         nextBtn = (ImageButton)findViewById(R.id.next_btn);
@@ -65,7 +65,16 @@ public class SelectEmoteActivity extends AppCompatActivity {
                 }
                 else {
                     Intent intent = new Intent(getApplicationContext(), PostActivity.class);
-                    intent.putExtra("감정개수", count);
+
+                    int mCount=1;
+                    for (int i=0; i<12; i++){
+                        if(emoteStatArray[i]==1){
+                            String tag="emotion"+String.valueOf(mCount);
+                            intent.putExtra(tag, i);
+                            mCount++;
+                            Log.i("record",tag);
+                        }
+                    }
                     startActivity(intent);
                 }
             }

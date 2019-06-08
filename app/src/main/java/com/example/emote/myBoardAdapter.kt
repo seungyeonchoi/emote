@@ -30,7 +30,7 @@ class myBoardAdapter:RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
     //  val str=db.getPosts()!!.get(0).contents
     //    p0.contents.text=str
         p0.title.text="오늘기분짱"
-     p0.contents.text="토트넘이 챔스 우승해서 기분이 최고당"
+        p0.contents.text="토트넘이 챔스 우승해서 기분이 최고당"
     }
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var title:TextView
