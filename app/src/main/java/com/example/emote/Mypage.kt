@@ -63,7 +63,8 @@ class Mypage : Fragment() {
         val layoutManager=LinearLayoutManager(activity)
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
-        val adapter=myBoardAdapter()
+        val items=DB().getPostsByQuery("pid=1")
+        val adapter=myBoardAdapter(items!!)
         myBoardListview.adapter=adapter
         myBoardBtn.setOnClickListener {
             val intent=Intent(activity,SelectEmoteActivity::class.java)

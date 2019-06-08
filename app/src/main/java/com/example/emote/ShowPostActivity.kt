@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_show_post.*
 import kotlinx.android.synthetic.main.activity_show_post.*
 
 
@@ -33,8 +35,8 @@ class ShowPostActivity : AppCompatActivity() {
         val result = DB().getPostsByQuery("pid = $pid")
         if (result != null) {
             post = result[0]
-            text_etitle.text = DB().getName(DB.Emotion(eid.toString(), "", "")) + " 게시판"
-            text_title.text = post.title
+
+//            text_title.text = post.title
             text_contents.text = post.contents
             text_count.text = post.heart_count
             text_place.text = "장소 : ${post.place}"
@@ -53,7 +55,7 @@ class ShowPostActivity : AppCompatActivity() {
                 val result = DB().getPostsByQuery("pid = $pid")
                 if (result != null) {
                     post = result[0]
-                    text_etitle.text = DB().getName(DB.Emotion(eid.toString(), "", "")) + " 게시판"
+             //       text_etitle.text = DB().getName(DB.Emotion(eid.toString(), "", "")) + " 게시판"
                     text_title.text = post.title
                     text_contents.text = post.contents
                     text_count.text = post.heart_count
@@ -73,8 +75,8 @@ class ShowPostActivity : AppCompatActivity() {
         }
         img_like.setOnClickListener {
             if(l_able) {
-                post.heart_count = (post.heart_count.toInt() + 1).toString()
-                DB().update(post)
+              //  post.heart_count = (post.heart_count.toInt() + 1).toString()
+     //           DB().update(post)
                 text_count.text = post.heart_count
                 l_able = false
             }else{
@@ -87,7 +89,7 @@ class ShowPostActivity : AppCompatActivity() {
                 val users = DB().getUser(post.uid.toInt())
                 val user: DB.User
                 if (users != null) {
-                    users[0].caution = (users[0].caution.toInt() + 1).toString()
+           //         users[0].caution = (users[0].caution.toInt() + 1).toString()
                     user = users[0]
                     Toast.makeText(this, "신고가 접수되었습니다.", Toast.LENGTH_SHORT).show()
                     r_able = false
@@ -96,7 +98,7 @@ class ShowPostActivity : AppCompatActivity() {
                     Log.d("error!!!", "해당하는 사용자가 없음(탈퇴?).")
                     Toast.makeText(this, "탈퇴하거나 밴 당한 사용자입니다.", Toast.LENGTH_SHORT).show()
                 }
-                DB().update(user)
+           //     DB().update(user)
             }
             else{
                 Toast.makeText(this, "이미 신고한 게시글입니다.", Toast.LENGTH_SHORT).show()
