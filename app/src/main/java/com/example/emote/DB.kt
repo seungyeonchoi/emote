@@ -118,6 +118,7 @@ class DB{
         Log.d("query : ","INSERT INTO `post` (`pb`, `date`, `contents`, `place`, `heart_count`, `title`, `activity`, `uid`) VALUES ('${post.pb}', NOW(), '${post.contents}', '${post.place}', '${post.heart_count}', '${post.title}', '${post.activity}', '${post.uid}')")
         val result = InsertData().execute(IP_ADDRESS, "INSERT INTO `post` (`pb`, `date`, `contents`, `place`, `heart_count`, `title`, `activity`, `uid`) VALUES ('${post.pb}', NOW(), '${post.contents}', '${post.place}', '${post.heart_count}', '${post.title}', '${post.activity}', '${post.uid}')").get()
         try {
+
             Log.d("sql insert result : ", result)
         } catch (e: Exception) {
             e.printStackTrace()

@@ -26,6 +26,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var post:Post
     var uid="temp"
     var mode:String="writing"
+    var public=false
    var selectedEmote= mutableListOf<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -42,7 +43,18 @@ class PostActivity : AppCompatActivity() {
                spinArr[j-1].isEnabled=false
            }
         }
-
+        publicRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId != -1) {
+                when (checkedId) {
+                    R.id.privateModeBtn -> {
+                        public=false
+                    }
+                    R.id.publicModeBtn -> {
+                        public=true
+                    }
+                }
+            }
+        }
         modeRadioGroup.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId != -1) {
                 when (checkedId) {
@@ -150,7 +162,9 @@ class PostActivity : AppCompatActivity() {
         }
         submit.setOnClickListener {
             if(isFilled()) {
-                //db에 넣는 작업을 합시다 ,, ,,
+                val mPost = DB.Post("",post.pb.toString(), getDate(), post.contents, post.place, "0", post.title, post.activity, uid)
+                DB().insert(mPost)
+
                 titleEditText.text.clear()
                 contentsEditText.text.clear()
                 placeEditText.text.clear()
@@ -158,6 +172,7 @@ class PostActivity : AppCompatActivity() {
                 emoteSeekBar2.progress=0
                 emoteSeekBar3.progress=0
                 activitySpin.setSelection(0)
+
                 Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
             }
             else
@@ -176,7 +191,6 @@ class PostActivity : AppCompatActivity() {
         var contents=""
         var place=""
         var pActivity=""
-        var public=false
 
         for(i in 0 .. 2){
             if(spinArr[i].isEnabled==true)
@@ -185,7 +199,6 @@ class PostActivity : AppCompatActivity() {
                 else
                     emotionValue.add(spinArr[i].progress) //감정 정도값이 아니라 기쁨/ 슬픔 같은 감정에 따른 값을 넘겨야함!
         }
-        if(mode=="write"){
             title=titleEditText.text.toString()
             if(title=="")
                 return false
@@ -197,31 +210,14 @@ class PostActivity : AppCompatActivity() {
                 return false
             pActivity=activitySpin.selectedItem.toString()
 
-            publicRadioGroup.setOnCheckedChangeListener { group, checkedId ->
-                if (checkedId != -1) {
-                    when (checkedId) {
-                        R.id.privateModeBtn -> {
-                            public=false
-                        }
-                        R.id.publicModeBtn -> {
-                            public=true
-                        }
-                    }
-                }
-            }
-            post=Post("-1",uid,getDate(),public, title,contents,emotionValue,place,pActivity)
-        }
-        else{ //녹음모드
 
-            //녹음해서 저장하고 title은 녹음 content는 파일저장우치/파일명/확장자, 무적권 나만보기 모드
-        }
+            post=Post("-1",uid,getDate(),public, title,contents,emotionValue,place,pActivity)
+
         return true
     }
     fun initPermission(){
         var requestArr=arrayOf(android.Manifest.permission.RECORD_AUDIO,android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE)
-        if(checkAppPermission(requestArr))
-            Toast.makeText(this,"권한이 승인됨",Toast.LENGTH_SHORT).show()
-        else
+        if(!checkAppPermission(requestArr))
             askPermission(requestArr,PERMISSION_REQUEST) //제일 처음엔 권한정보없으므로 자동으로 else로 넘어옴!
     }
 
