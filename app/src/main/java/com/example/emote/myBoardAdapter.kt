@@ -29,8 +29,8 @@ class myBoardAdapter:RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
         */
     //  val str=db.getPosts()!!.get(0).contents
     //    p0.contents.text=str
-        p0.title.text="슬픔"
-        p0.contents.text="사실 우승한건 토트넘이 아니라 리버풀이었당 나리는 2만원을 뜯기고 말았당"
+        p0.title.text="챔스 결승"
+        p0.contents.text="리버풀이 우승할 거라고 생각했었는데 어떤 나쁜 놈이 토트넘에 돈을 걸라고 했다 \n 그리고 리버풀이 2:0으로 이겨버렸다 결국 나는 2만원을 그렇게 뜯기고 말았다 마음이 아팠다"
 
     }
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
