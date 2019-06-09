@@ -51,7 +51,7 @@ class InsertData extends AsyncTask<String, Void, String> {
 
 
             OutputStream outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(postParameters.getBytes("UTF-8"));
+            outputStream.write(postParameters.getBytes("EUC_KR")); //UTF-8로 넣엇을때는 한글이 꺠져 나와서 변경함!
             outputStream.flush();
             outputStream.close();
 

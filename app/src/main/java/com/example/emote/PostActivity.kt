@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_post.*
@@ -23,21 +24,31 @@ class PostActivity : AppCompatActivity() {
     val PERMISSION_REQUEST=1234
 
     lateinit var spinArr:ArrayList<SeekBar>
+    lateinit var imvArr:ArrayList<ImageView>
+    lateinit var emoteArr:ArrayList<Int>
     lateinit var post:Post
     var uid="temp"
     var mode:String="writing"
-    var public=false
+    var public="0"
    var selectedEmote= mutableListOf<Int>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         initPermission()
+        val defaultArray = applicationContext.resources.obtainTypedArray(R.array.drawable)
+
+
         spinArr= arrayListOf(emoteSeekBar1,emoteSeekBar2,emoteSeekBar3)
+        imvArr=arrayListOf(emotion_1,emotion_2,emotion_3)
         val i=intent
         for(j in 1 .. 3){
            if(i.hasExtra("emotion"+j.toString())){
                selectedEmote.add(i.getIntExtra("emotion"+j,-1))
+               imvArr[j-1].setImageResource(defaultArray.getResourceId(selectedEmote[j-1],-1))
+
            }
             else{
                spinArr[j-1].isEnabled=false
@@ -47,10 +58,10 @@ class PostActivity : AppCompatActivity() {
             if (checkedId != -1) {
                 when (checkedId) {
                     R.id.privateModeBtn -> {
-                        public=false
+                        public="0"
                     }
                     R.id.publicModeBtn -> {
-                        public=true
+                        public="1"
                     }
                 }
             }
@@ -162,7 +173,7 @@ class PostActivity : AppCompatActivity() {
         }
         submit.setOnClickListener {
             if(isFilled()) {
-                val mPost = DB.Post("",post.pb.toString(), getDate(), post.contents, post.place, "0", post.title, post.activity, uid)
+                val mPost = DB.Post("",post.pb, getDate(), post.contents, post.place, "0", post.title, post.activity, uid)
                 DB().insert(mPost)
 
                 titleEditText.text.clear()

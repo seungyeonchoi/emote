@@ -18,7 +18,7 @@
             <ImageView
                     android:id="@+id/emotion_1" android:padding="5dp"
                     android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
-                    android:scaleType="fitCenter" android:src="@drawable/hmm_icon" android:layout_weight="1"/>
+                    android:scaleType="fitCenter" android:layout_weight="1"/>
             <SeekBar
                     android:max="10"
                     android:layout_width="0dp"
@@ -36,7 +36,7 @@
             <ImageView
                     android:id="@+id/emotion_2" android:padding="5dp"
                     android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
-                    android:scaleType="fitCenter" android:src="@drawable/lonely_icon" android:layout_weight="1"/>
+                    android:scaleType="fitCenter"  android:layout_weight="1"/>
             <SeekBar
                     android:max="10"
                     android:thumb="@drawable/seekbar_thumb"
@@ -53,7 +53,7 @@
             <ImageView
                     android:id="@+id/emotion_3" android:padding="5dp"
                     android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginRight="5dp"
-                    android:scaleType="fitCenter" android:src="@drawable/anger_icon" android:layout_weight="1"/>
+                    android:scaleType="fitCenter"  android:layout_weight="1"/>
             <SeekBar
                     android:max="10"
                     android:thumb="@drawable/seekbar_thumb"
