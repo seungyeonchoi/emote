@@ -64,8 +64,9 @@ class Mypage : Fragment() {
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
         //uid를 받아오면
-        val items=DB().getPosts() as List<DB.Post>
-       // val items=DB().getPostsByQuery("uid=0")
+        //val items=DB().getPosts() as List<DB.Post>
+        val items=DB().getPostsByQuery("uid=0") as MutableList<DB.Post>
+        Log.v("items",items.size.toString())
         val adapter=myBoardAdapter(items)
         myBoardListview.adapter=adapter
         myBoardBtn.setOnClickListener {

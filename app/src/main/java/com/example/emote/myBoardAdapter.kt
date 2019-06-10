@@ -11,28 +11,29 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.board_card.view.*
 import org.intellij.lang.annotations.Identifier
 import org.w3c.dom.Text
 
-class myBoardAdapter(val items:List<DB.Post>)
+class myBoardAdapter(val items:MutableList<DB.Post>)
     :RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
 
     val db = DB()
     val image = arrayOf(
-        R.drawable.proud_icon,
-        R.drawable.sadness_icon,
-        R.drawable.anger_icon,
-        R.drawable.annoyed_icon,
         R.drawable.happiness_icon,
-        R.id.hmm_icon,
-        R.drawable.dugeun_icon,
         R.drawable.anger_icon,
+        R.drawable.sadness_icon,
         R.drawable.excited_icon,
+        R.id.hmm_icon,
+        R.drawable.love_icon,
+        R.drawable.terrified_icon,
+        R.drawable.proud_icon,
+        R.drawable.sick_icon,
+        R.drawable.annoyed_icon,
         R.drawable.lonely_icon,
-        R.drawable.love_icon
+        R.drawable.dugeun_icon
     )
     val imageView = arrayOf(
-        0,
         R.id.mbCardEmote1,
         R.id.mbCardEmote1_Stat,
         R.id.mbCardEmote2,
@@ -48,30 +49,34 @@ class myBoardAdapter(val items:List<DB.Post>)
     }
 
     override fun getItemCount(): Int {
-        return 1
+        Log.i("doingAdapter",items.size.toString())
+        return items.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-
-
 /*
         p0.title.text = "챔스 결승"
         p0.contents.text ="리버풀이 우승할 거라고 생각했었는데 어떤 나쁜 놈이 토트넘에 돈을 걸라고 했다 \n 그리고 리버풀이 2:0으로 이겨버렸다 결국 나는 2만원을 그렇게 뜯기고 말았다 마음이 아팠다"
    */
-
         p0.title.text=items.get(p1).title
         //userid에 맞는 post list가 items 입니다.t=items.get(p1).title
         p0.contents.text=items.get(p1).contents
         p0.mbCardTime.text=items.get(p1).date
 
-        val emtListforPost=db.getEmotion(items.get(p1).pid.toInt())
-        Log.v("emotion",emtListforPost!!.size.toString())
-        for(i  in 1..emtListforPost!!.size){
-        //이 포스트에 설정한 감정들
-     val index=emtListforPost.get(i).eid.toInt()
-    p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
-        p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
+        //val emotion index=items.get(p1).pid.toInt()
+        val emtListforPost=db.getEmotion(1) as List<DB.Emotion>
+        Log.v("emotionlist",emtListforPost!!.size.toString())
+        /*
+        for(i in 0..emtListforPost.size){
+
+            val v=p0. mbCardEmote1
+            v.setImageResource(image.get(i))
+            val t=imageView.get(i) as TextView
+            t.text=emtListforPost.get(p1).percent
         }
+*/
+
+
 
 
 
@@ -101,8 +106,18 @@ class myBoardAdapter(val items:List<DB.Post>)
             mbCardEmote3_Stat = itemView.findViewById(R.id.mbCardEmote3_Stat)
             trashBtn = itemView.findViewById(R.id.trash_btn)
             trashBtn.setOnClickListener {
-                itemView.visibility = GONE
+                var index=0
+                for( i in 0..items.size){
+                    if(items.get(i).title==itemView.mbCardTitle.text) {
+                        index = i
+                        break
+                    }
+                }
+                items.remove(items.get(index))
+                notifyDataSetChanged()
+
             }
+
         }
 
     }
