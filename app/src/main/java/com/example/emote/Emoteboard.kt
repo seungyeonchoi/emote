@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_emoteboard.*
 import android.content.Intent
 import android.widget.AdapterView
-import android.R
+import android.R.layout
 
 
 
@@ -73,7 +73,7 @@ class Emoteboard : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val item = Array(12, {i-> i})
-        emoteboardList.adapter = boardArrayAdapter(context, R.layout.row, item)
+        emoteboardList.adapter = boardArrayAdapter(context, R.layout.list_custom, item)
         addListener()
     }
 
