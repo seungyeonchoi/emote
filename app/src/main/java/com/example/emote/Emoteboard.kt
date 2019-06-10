@@ -69,6 +69,11 @@ class Emoteboard : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val item = Array(12, {i-> i})
         emoteboardList.adapter = boardArrayAdapter(context, R.layout.list_custom, item)
+        addListener()
+    }
+
+    fun addListener() {
+
     }
 
     /**
