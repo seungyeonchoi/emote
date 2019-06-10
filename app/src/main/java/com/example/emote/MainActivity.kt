@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         init()
          //insertInfo()
+        /*test용
        val db=DB()
         val str=db.getPosts()
         val date=str!!.get(0).date
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity()
         Log.i("dbplz4",con)
         Log.i("dbplz5",place)
         Log.i("dbplz6",activity)
-
+        */
 
 
     }
