@@ -8,6 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_emoteboard.*
+import android.content.Intent
+import android.widget.AdapterView
+import android.R
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -73,7 +78,11 @@ class Emoteboard : Fragment() {
     }
 
     fun addListener() {
-
+        emoteboardList.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+            val intent = Intent(getContext(), ShowPostActivity::class.java)
+            intent.putExtra("감정 뭔지", position)
+            startActivity(intent)
+        })
     }
 
     /**
