@@ -1,5 +1,6 @@
 package com.example.emote
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Bundle
@@ -185,6 +186,7 @@ class PostActivity : AppCompatActivity() {
                 activitySpin.setSelection(0)
 
                 Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,MainActivity::class.java))
             }
             else
                 Toast.makeText(this, "모든 필드를 채워주세요!",Toast.LENGTH_SHORT).show()

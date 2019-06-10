@@ -53,25 +53,25 @@ class myBoardAdapter(val items:List<DB.Post>)
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
 
-
+/*
         p0.title.text = "챔스 결승"
         p0.contents.text ="리버풀이 우승할 거라고 생각했었는데 어떤 나쁜 놈이 토트넘에 돈을 걸라고 했다 \n 그리고 리버풀이 2:0으로 이겨버렸다 결국 나는 2만원을 그렇게 뜯기고 말았다 마음이 아팠다"
-        /******post를 잘 읽어온다면 수행 ********
+   */
 
-        //userid에 맞는 post list가 items 입니다.
         p0.title.text=items.get(p1).title
+        //userid에 맞는 post list가 items 입니다.t=items.get(p1).title
         p0.contents.text=items.get(p1).contents
         p0.mbCardTime.text=items.get(p1).date
 
         val emtListforPost=db.getEmotion(items.get(p1).pid.toInt())
         for(i  in 0..emtListforPost!!.size){
         //이 포스트에 설정한 감정들
-        val index=emtListforPost.get(i).eid.toInt()
-        p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
-        p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
+       // val index=emtListforPost.get(i).eid.toInt()
+      //  p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
+       // p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
         }
 
-         ****************************************/
+
 
     }
 
@@ -99,7 +99,7 @@ class myBoardAdapter(val items:List<DB.Post>)
             mbCardEmote3_Stat = itemView.findViewById(R.id.mbCardEmote3_Stat)
             trashBtn = itemView.findViewById(R.id.trash_btn)
             trashBtn.setOnClickListener {
-                it.visibility = GONE
+                itemView.visibility = GONE
             }
         }
 

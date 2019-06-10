@@ -9,15 +9,19 @@ import android.util.Log
 import com.beust.klaxon.JsonArray
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_show_post.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.net.URLDecoder
+import java.net.URLEncoder
 
 class MainActivity : AppCompatActivity()
     , Mypage.OnFragmentInteractionListener, Emoteboard.OnFragmentInteractionListener, Statistics.OnFragmentInteractionListener{
     override fun onFragmentInteraction(uri: Uri) {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
     lateinit var adapter:ViewPagerAdapter
 
@@ -27,6 +31,23 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         init()
          //insertInfo()
+       val db=DB()
+        val str=db.getPosts()
+        val date=str!!.get(0).date
+        val title=str!!.get(0).title
+        val con=str!!.get(0).contents
+        val place=str!!.get(0).place
+        val activity=str!!.get(0).activity
+
+
+        Log.i("dbplz2",date)
+        Log.i("dbplz3",title)
+        Log.i("dbplz4",con)
+        Log.i("dbplz5",place)
+        Log.i("dbplz6",activity)
+
+
+
     }
 
 

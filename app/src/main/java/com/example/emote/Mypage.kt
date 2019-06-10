@@ -63,7 +63,8 @@ class Mypage : Fragment() {
         val layoutManager=LinearLayoutManager(activity)
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
-        val items=DB().getPostsByQuery("pid=1")
+        //uid를 받아오면
+        val items=DB().getPostsByQuery("uid=0")
         val adapter=myBoardAdapter(items!!)
         myBoardListview.adapter=adapter
         myBoardBtn.setOnClickListener {
