@@ -74,15 +74,19 @@ class Emoteboard : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val item = Array(12, {i-> i})
         emoteboardList.adapter = boardArrayAdapter(context, R.layout.list_custom, item)
-        addListener()
+
+       // LoginActivity가 아니라 showPostActivity를 띄워야하는데 이 액티비티가 실행이 안됩니다.
+        emoteboardList.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(activity!!.applicationContext, LoginActivity::class.java)
+            intent.putExtra("감정 뭔지", position)
+            startActivity(intent)
+        }
+
+
     }
 
     fun addListener() {
-        emoteboardList.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
-            val intent = Intent(getContext(), ShowPostActivity::class.java)
-            intent.putExtra("감정 뭔지", position)
-            startActivity(intent)
-        })
+
     }
 
     /**

@@ -64,6 +64,7 @@ class myBoardAdapter(val items:List<DB.Post>)
         p0.mbCardTime.text=items.get(p1).date
 
         val emtListforPost=db.getEmotion(items.get(p1).pid.toInt())
+        Log.v("emotion",emtListforPost!!.size.toString())
         for(i  in 0..emtListforPost!!.size){
         //이 포스트에 설정한 감정들
        // val index=emtListforPost.get(i).eid.toInt()
