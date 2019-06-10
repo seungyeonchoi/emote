@@ -32,6 +32,7 @@ class myBoardAdapter(val items:List<DB.Post>)
         R.drawable.love_icon
     )
     val imageView = arrayOf(
+        0,
         R.id.mbCardEmote1,
         R.id.mbCardEmote1_Stat,
         R.id.mbCardEmote2,
@@ -65,11 +66,11 @@ class myBoardAdapter(val items:List<DB.Post>)
 
         val emtListforPost=db.getEmotion(items.get(p1).pid.toInt())
         Log.v("emotion",emtListforPost!!.size.toString())
-        for(i  in 0..emtListforPost!!.size){
+        for(i  in 1..emtListforPost!!.size){
         //이 포스트에 설정한 감정들
-       // val index=emtListforPost.get(i).eid.toInt()
-      //  p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
-       // p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
+     val index=emtListforPost.get(i).eid.toInt()
+    p0.itemView.findViewById<ImageView>(imageView.get(2*i-1)).setImageResource( image.get(index))
+        p0.itemView.findViewById<TextView>(imageView.get(2*i)).text=emtListforPost.get(i).percent
         }
 
 
