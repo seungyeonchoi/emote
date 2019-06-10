@@ -64,9 +64,13 @@ class Mypage : Fragment() {
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
         //uid를 받아오면
-        val items=DB().getPostsByQuery("uid=0")
-        val adapter=myBoardAdapter(items!!)
+        val items=DB().getPosts() as MutableList<DB.Post>
+      //  val items=DB().getPostsByQuery("uid=0") as MutableList<DB.Post>
+        Log.v("items",items.size.toString())
+        val adapter=myBoardAdapter(items)
+        Log.v("items","adapter선언")
         myBoardListview.adapter=adapter
+        Log.v("items","adapter연결")
         myBoardBtn.setOnClickListener {
             val intent=Intent(activity,SelectEmoteActivity::class.java)
             startActivity(intent)
