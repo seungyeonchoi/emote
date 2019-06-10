@@ -1,6 +1,7 @@
 package com.example.emote
 
 import android.opengl.Visibility
+import android.provider.ContactsContract
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,14 +34,7 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
         R.drawable.lonely_icon,
         R.drawable.dugeun_icon
     )
-    val imageView = arrayOf(
-        R.id.mbCardEmote1,
-        R.id.mbCardEmote1_Stat,
-        R.id.mbCardEmote2,
-        R.id.mbCardEmote2_Stat,
-        R.id.mbCardEmote3,
-        R.id.mbCardEmote3_Stat
-    )
+
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v = LayoutInflater.from(p0.context).inflate(R.layout.board_card, p0, false)
@@ -54,6 +48,15 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
+        val imageView = arrayOf(
+
+            p0.mbCardEmote1,
+            p0.mbCardEmote1_Stat,
+            p0.mbCardEmote2,
+            p0.mbCardEmote2_Stat,
+            p0.mbCardEmote3,
+            p0.mbCardEmote3_Stat
+        )
 /*
         p0.title.text = "챔스 결승"
         p0.contents.text ="리버풀이 우승할 거라고 생각했었는데 어떤 나쁜 놈이 토트넘에 돈을 걸라고 했다 \n 그리고 리버풀이 2:0으로 이겨버렸다 결국 나는 2만원을 그렇게 뜯기고 말았다 마음이 아팠다"
@@ -64,17 +67,21 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
         p0.mbCardTime.text=items.get(p1).date
 
         //val emotion index=items.get(p1).pid.toInt()
-        val emtListforPost=db.getEmotion(1) as List<DB.Emotion>
-        Log.v("emotionlist",emtListforPost!!.size.toString())
-        /*
-        for(i in 0..emtListforPost.size){
 
-            val v=p0. mbCardEmote1
-            v.setImageResource(image.get(i))
-            val t=imageView.get(i) as TextView
-            t.text=emtListforPost.get(p1).percent
+            val emtListforPost = db.getEmotion(items.get(p1).pid.toInt()) as List<DB.Emotion>
+
+        Log.v("emotionlist3",emtListforPost!!.size.toString())
+
+        for(i in 0..emtListforPost.size-1){
+             Log.v("doingadapter",i.toString())
+            val v=imageView.get(2*i) as ImageView
+            v.setImageResource(image.get(emtListforPost.get(i).eid.toInt()))
+            Log.v("doingadaptersetImage",emtListforPost.get(i).eid)
+            val s=imageView.get(2*i+1) as TextView
+            s.text=emtListforPost.get(i).percent
+            Log.v("doingadaptersetText",emtListforPost.get(i).percent)
+
         }
-*/
 
 
 
