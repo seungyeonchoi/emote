@@ -68,7 +68,7 @@ class InsertData extends AsyncTask<String, Void, String> {
             }
 
 
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "EUC_KR");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             StringBuilder sb = new StringBuilder();
