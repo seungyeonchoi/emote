@@ -14,21 +14,14 @@
             android:layout_marginEnd="4dp"
             android:gravity="center"
             android:layout_marginTop="24dp">
-        <ImageView android:id="@+id/stat_emo1" android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_marginRight="5dp"/>
-        <ImageView android:id="@+id/stat_emo2" android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_marginRight="5dp" android:layout_marginLeft="5dp"/>
-        <ImageView android:id="@+id/stat_emo3" android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_marginRight="5dp" android:layout_marginLeft="5dp"/>
-        <ImageView android:id="@+id/stat_emo4" android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_marginRight="5dp" android:layout_marginLeft="5dp"/>
-        <ImageView android:id="@+id/stat_emo5" android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_marginLeft="5dp"/>
+
+        <Spinner
+                android:layout_width="wrap_content" android:spinnerMode="dialog" android:entries="@array/statistic_arr"
+                android:layout_height="wrap_content" android:id="@+id/rangeSpin" android:layout_weight="1"/>
+        <TextView
+                android:text="간의 감정 기록"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
     </LinearLayout>
     <ImageView android:layout_width="match_parent" android:layout_height="300dp" android:id="@+id/graphCanvas"/>
     <View
@@ -40,7 +33,6 @@
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center" android:paddingLeft="60dp">
         <CheckBox android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:id="@+id/checkbox01"  android:text="장소"/>
-        <CheckBox android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" android:id="@+id/checkbox02" android:text="인물"/>
         <CheckBox android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" android:id="@+id/checkbox03" android:text="활동"/>
     </LinearLayout>
 
