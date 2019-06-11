@@ -67,8 +67,8 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
         p0.mbCardTime.text=items.get(p1).date
 
         //val emotion index=items.get(p1).pid.toInt()
-
-            val emtListforPost = db.getEmotion(items.get(p1).pid.toInt()) as List<DB.Emotion>
+        try{
+         val emtListforPost = db.getEmotion(items.get(p1).pid.toInt()) as List<DB.Emotion>
 
         Log.v("emotionlist3",emtListforPost!!.size.toString())
 
@@ -82,7 +82,10 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
             Log.v("doingadaptersetText",emtListforPost.get(i).percent)
 
         }
-
+        }
+        catch(e : Exception){
+            Log.d("error", e.message);
+        }
 
 
 
