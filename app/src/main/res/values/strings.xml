@@ -16,6 +16,11 @@
         <item>게임</item>
         <item>없음</item>
     </string-array>
+    <string-array name="statistic_arr">
+        <item>지난 3일</item>
+        <item>지난 일주일</item>
+        <item>지난 한달</item>
+    </string-array>
 
 
     <!-- TODO: Remove or change this placeholder text -->
