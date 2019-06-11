@@ -29,35 +29,20 @@
             <EditText
                     android:layout_width="200dp"
                     android:layout_height="40dp"
-                    android:inputType="textPersonName" android:hint="  name"
+                    android:inputType="textPersonName" android:hint="  tel"
                     android:text=""
                     android:background="@color/colorPrimaryDark"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/sign_id"/>
             <EditText
                     android:layout_width="200dp"
-                    android:layout_height="40dp" android:hint="  number"
+                    android:layout_height="40dp" android:hint="  pw"
                     android:inputType="textPassword" android:layout_marginBottom="25dp"
                     android:background="@color/colorPrimaryDark"
                     android:id="@+id/sign_pw"/>
             <LinearLayout
                     android:layout_width="match_parent" android:layout_height="match_parent"
                     android:gravity="center">
-
-                <RadioGroup
-                        android:layout_width="wrap_content" android:orientation="horizontal"
-                        android:layout_height="wrap_content" android:checkedButton="@+id/sign_woman">
-                    <RadioButton
-                            android:text="여성"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/btn_woman" android:layout_marginRight="20dp"/>
-                    <RadioButton
-                            android:text="남성"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/btn_man"/>
-                </RadioGroup>
 
             </LinearLayout>
 

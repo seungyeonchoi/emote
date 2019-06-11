@@ -1,11 +1,9 @@
 package com.example.emote
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_show_post.*
 import kotlinx.android.synthetic.main.activity_show_post.*
 
 
@@ -15,6 +13,9 @@ class ShowPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_post)
+
+        //선택한 게시판 감정의 번호를 받아서 eid로 설정
+
 
         var post = DB.Post("0", "0", "", "0", "test", "0", "0", "0", "0")
         val eid = 1
