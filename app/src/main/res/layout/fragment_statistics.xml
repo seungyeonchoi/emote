@@ -16,7 +16,8 @@
             android:layout_marginTop="24dp">
 
         <Spinner
-                android:layout_width="wrap_content" android:spinnerMode="dialog" android:entries="@array/statistic_arr"
+                android:layout_width="wrap_content" android:spinnerMode="dialog"
+                android:entries="@array/statistic_arr"
                 android:layout_height="wrap_content" android:id="@+id/rangeSpin" android:layout_weight="1"/>
         <TextView
                 android:text="간의 감정 기록"
