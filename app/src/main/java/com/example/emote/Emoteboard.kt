@@ -32,7 +32,7 @@ class Emoteboard : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
-
+    var uid=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -70,6 +70,14 @@ class Emoteboard : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        if(activity!=null){
+            val intent=activity!!.intent
+            if(intent!=null)
+                uid=intent.getStringExtra("uid")
+        }
+
+
         val item = Array(12, {i-> i})
         emoteboardList.adapter = boardArrayAdapter(context, R.layout.list_custom, item)
 
