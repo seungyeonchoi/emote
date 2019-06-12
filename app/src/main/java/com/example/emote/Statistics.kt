@@ -1,19 +1,12 @@
 package com.example.emote
 
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.ImageView
-import kotlinx.android.synthetic.main.fragment_statistics.*
-import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,9 +29,9 @@ class Statistics : Fragment() {
     var emotionRatio = Array<Array<Int>>(emoArrSize){Array<Int>(emoMaxSize){0}} // 5일간의 감정 정보들의 퍼센테이지
     var emotionScore = Array<Int>(emoArrSize){100}    // 5일간의 감정 점수
     var topEmoArr = Array<String>(emoArrSize){""}   // 날짜 별로 퍼센트가 제일 높은 감정
-    var emoView = arrayOf(
-        stat_emo1,stat_emo2,stat_emo3,stat_emo4,stat_emo5
-    )
+//    var emoView = arrayOf(
+//        stat_emo1,stat_emo2,stat_emo3,stat_emo4,stat_emo5
+//    )
 
 //******************감정 정보 불러오기*********************************
 
@@ -87,24 +80,24 @@ class Statistics : Fragment() {
                 imageView.setImageResource(R.drawable.icon_1_b)
             }*/
                 //topEmoArr별로 이모티콘 세팅
-            for(i in R.id.stat_emo1..R.id.stat_emo5){
-                val imageView=activity!!.findViewById<ImageView>(i)
-                var index=0
-                when(topEmoArr[index]){
-                    "hmm"->{imageView.setImageResource(R.drawable.hmm_icon)}
-                    "anger"->{imageView.setImageResource(R.drawable.anger_icon)}
-                    "dugeun"->{imageView.setImageResource(R.drawable.dugeun_icon)}
-                    "excited"->{imageView.setImageResource(R.drawable.excited_icon)}
-                    "happiness"->{imageView.setImageResource(R.drawable.happiness_icon)}
-                    "love"->{imageView.setImageResource(R.drawable.love_icon)}
-                    "lonely"->{imageView.setImageResource(R.drawable.lonely_icon)}
-                    "proud"->{imageView.setImageResource(R.drawable.proud_icon)}
-                    "sad"->{imageView.setImageResource(R.drawable.sadness_icon)}
-                    "terrified"->{imageView.setImageResource(R.drawable.terrified_icon)}
-                    "annoyed"->{imageView.setImageResource(R.drawable.annoyed_icon)}
-                }
-
-            }
+//            for(i in R.id.stat_emo1..R.id.stat_emo5){
+//                val imageView=activity!!.findViewById<ImageView>(i)
+//                var index=0
+//                when(topEmoArr[index]){
+//                    "hmm"->{imageView.setImageResource(R.drawable.hmm_icon)}
+//                    "anger"->{imageView.setImageResource(R.drawable.anger_icon)}
+//                    "dugeun"->{imageView.setImageResource(R.drawable.dugeun_icon)}
+//                    "excited"->{imageView.setImageResource(R.drawable.excited_icon)}
+//                    "happiness"->{imageView.setImageResource(R.drawable.happiness_icon)}
+//                    "love"->{imageView.setImageResource(R.drawable.love_icon)}
+//                    "lonely"->{imageView.setImageResource(R.drawable.lonely_icon)}
+//                    "proud"->{imageView.setImageResource(R.drawable.proud_icon)}
+//                    "sad"->{imageView.setImageResource(R.drawable.sadness_icon)}
+//                    "terrified"->{imageView.setImageResource(R.drawable.terrified_icon)}
+//                    "annoyed"->{imageView.setImageResource(R.drawable.annoyed_icon)}
+//                }
+//
+//            }
 
         }
 

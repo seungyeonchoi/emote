@@ -49,10 +49,9 @@ class PostActivity : AppCompatActivity() {
            if(i.hasExtra("emotion"+j.toString())){
                selectedEmote.add(i.getIntExtra("emotion"+j,-1))
                imvArr[j-1].setImageResource(defaultArray.getResourceId(selectedEmote[j-1],-1))
-
            }
             else{
-               spinArr[j-1].isEnabled=false
+               spinArr[j-1].visibility=View.INVISIBLE
            }
         }
         publicRadioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -76,22 +75,20 @@ class PostActivity : AppCompatActivity() {
                         submit.visibility= View.VISIBLE
                         publicModeBtn.isEnabled=true
                         var mCount=0
-                        for(i in selectedEmote){
-                            if(i!=-1) {
-                                spinArr[mCount++].isEnabled = true
-                            }
+                        for(i in selectedEmote) {
+                            if (i != -1) {
+                                spinArr[mCount++].visibility = View.VISIBLE
+                            } else
+                                spinArr[mCount++].visibility = View.INVISIBLE
                         }
-                        contentsEditText.visibility=View.VISIBLE
+                            contentsEditText.visibility=View.VISIBLE
                     }
                     R.id.recordModeBtn -> {
                         mode = "record"
-                        emoteSeekBar1.progress=0
-                        emoteSeekBar2.progress=0
-                        emoteSeekBar3.progress=0
-
-                        emoteSeekBar1.isEnabled=false
-                        emoteSeekBar2.isEnabled=false
-                        emoteSeekBar3.isEnabled=false
+                        for(i in spinArr){
+                            i.progress=0
+                            i.visibility=View.INVISIBLE
+                        }
                         recordBtn.visibility = View.VISIBLE
                         submit.visibility= View.VISIBLE
                         publicModeBtn.isEnabled=false
@@ -176,6 +173,18 @@ class PostActivity : AppCompatActivity() {
             if(isFilled()) {
                 val mPost = DB.Post("",post.pb, getDate(), post.contents, post.place, "0", post.title, post.activity, uid)
                 DB().insert(mPost)
+                val items=DB().getPosts() as MutableList<DB.Post>
+                for(i in items.size-1 downTo 0){
+                    if(items[i].title==post.title && items[i].place==post.place) //pid를 가져올 조건은 더 생각해봐야할듯
+                        post.pid=items[i].pid
+                }
+                var mCount=0
+                for(i in selectedEmote){
+                    if(i!=-1) {
+                        val mEmotion=DB.Emotion(i.toString(),post.pid,(spinArr[mCount++].progress).toString())
+                        DB().insert(mEmotion)
+                    }
+                }
 
                 titleEditText.text.clear()
                 contentsEditText.text.clear()
@@ -206,7 +215,7 @@ class PostActivity : AppCompatActivity() {
         var pActivity=""
 
         for(i in 0 .. 2){
-            if(spinArr[i].isEnabled==true)
+            if(spinArr[i].visibility==View.VISIBLE)
                 if(spinArr[i].progress==0)
                     return false
                 else
