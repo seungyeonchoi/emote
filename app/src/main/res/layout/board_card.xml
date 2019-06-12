@@ -7,9 +7,9 @@
         android:layout_margin="10dp"
         app:cardCornerRadius="20dp"
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:layout_width="match_parent" 
+    <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent" android:orientation="vertical">
-        
+
         <LinearLayout
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="horizontal" android:gravity="left"
@@ -35,52 +35,54 @@
 
         </LinearLayout>
 
-    <LinearLayout
-            android:layout_width="match_parent" android:layout_height="35dp"
-            android:orientation="horizontal" android:gravity="left" android:layout_marginLeft="15dp"
-            android:paddingBottom="5dp">
+        <LinearLayout
+                android:layout_width="match_parent" android:layout_height="35dp"
+                android:orientation="horizontal" android:gravity="left" android:layout_marginLeft="15dp"
+                android:paddingBottom="5dp">
 
-        <ImageView
-                android:id="@+id/mbCardEmote1"
-                android:visibility="gone"
-                android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
-                android:layout_weight="1" android:src="@drawable/hmm_icon" android:padding="2dp"/>
-        <TextView
-                android:id="@+id/mbCardEmote1_Stat"
-                android:visibility="gone"
-                android:text="3" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
-        <ImageView
-                android:id="@+id/mbCardEmote2"
-                android:visibility="gone"
-                android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
-                android:layout_weight="1" android:src="@drawable/sadness_icon" android:padding="2dp"/>
-        <TextView
-                android:id="@+id/mbCardEmote2_Stat"
-                android:visibility="gone"
-                android:text="12" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
-        <ImageView
-                android:id="@+id/mbCardEmote3"
-                android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
-                android:layout_weight="1" android:src="@drawable/hmm_icon" android:padding="2dp"
-                android:visibility="gone"/>
-        <TextView
-                android:id="@+id/mbCardEmote3_Stat"
-                android:text="6" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"
-                android:visibility="gone"/>
-        <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:layout_weight="5"/>
+            <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote1"
+                    android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
+                    android:layout_weight="1" android:src="@drawable/hmm_icon" android:padding="2dp"/>
+            <TextView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote1_Stat"
+                    android:text="3" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+                    android:layout_width="0dp"  android:layout_weight="1"  android:layout_height="wrap_content" android:layout_gravity="center"/>
+            <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote2"
+                    android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
+                    android:layout_weight="1" android:src="@drawable/sadness_icon" android:padding="2dp"/>
+            <TextView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote2_Stat"
+                    android:text="12" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+                    android:layout_width="0dp"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"/>
+            <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote3"
+                    android:layout_width="0dp"  android:layout_weight="1" android:layout_height="match_parent" android:scaleType="fitCenter"
+                    android:src="@drawable/hmm_icon" android:padding="2dp"
+            />
+            <TextView
+                    android:visibility="gone"
+                    android:id="@+id/mbCardEmote3_Stat"
+                    android:text="6" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+                    android:layout_width="0dp"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"
+            />
+            <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:layout_weight="5"/>
 
-        <ImageView
-                android:id="@+id/trash_btn"
-                android:layout_width="0dp" android:scaleType="fitCenter" android:padding="2dp"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/trash_btn" android:layout_height="match_parent" android:layout_weight="1" />
+            <ImageView
+                    android:id="@+id/trash_btn"
+                    android:layout_width="0dp" android:scaleType="fitCenter" android:padding="2dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/trash_btn" android:layout_height="match_parent" android:layout_weight="1" />
 
-    </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="3">
 

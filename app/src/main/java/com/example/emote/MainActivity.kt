@@ -2,19 +2,9 @@ package com.example.emote
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import com.beust.klaxon.JsonArray
-
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_show_post.*
-import org.json.JSONArray
-import org.json.JSONException
-import org.json.JSONObject
-import java.net.URLDecoder
-import java.net.URLEncoder
 
 class MainActivity : AppCompatActivity()
     , Mypage.OnFragmentInteractionListener, Emoteboard.OnFragmentInteractionListener, Statistics.OnFragmentInteractionListener{
@@ -29,26 +19,10 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val i=intent
+        val uid=i.getStringExtra("uid")
         init()
-         //insertInfo()
-        /*test용
-       val db=DB()
-        val str=db.getPosts()
-        val date=str!!.get(0).date
-        val title=str!!.get(0).title
-        val con=str!!.get(0).contents
-        val place=str!!.get(0).place
-        val activity=str!!.get(0).activity
-
-
-        Log.i("dbplz2",date)
-        Log.i("dbplz3",title)
-        Log.i("dbplz4",con)
-        Log.i("dbplz5",place)
-        Log.i("dbplz6",activity)
-        */
-
-
     }
 
 

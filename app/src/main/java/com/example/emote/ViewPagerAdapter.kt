@@ -10,9 +10,16 @@ class ViewPagerAdapter(fm: FragmentManager,val  tabCount:Int) : FragmentPagerAda
     override fun getItem(p0: Int): Fragment? {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return when(p0){
-            0 ->Mypage()
-            1 ->Emoteboard()
-            2 ->Statistics()
+            0 -> {
+                Mypage()
+
+            }
+            1 -> {
+                Emoteboard()
+            }
+            2 -> {
+                Statistics()
+            }
             else -> null
         }
     }

@@ -15,11 +15,13 @@ public class SelectEmoteActivity extends AppCompatActivity {
     TypedArray defaultArray;
     TypedArray selectedArray;
     int count;
-
+    String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_emote);
+        Intent intent = getIntent();
+        uid=intent.getStringExtra("uid");
         init();
     }
 
@@ -63,7 +65,7 @@ public class SelectEmoteActivity extends AppCompatActivity {
                 }
                 else {
                     Intent intent = new Intent(getApplicationContext(), PostActivity.class);
-
+                    intent.putExtra("uid",uid);
                     int mCount=1;
                     for (int i=0; i<12; i++){
                         if(emoteStatArray[i]==1){
