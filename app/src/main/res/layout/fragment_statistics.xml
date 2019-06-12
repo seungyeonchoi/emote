@@ -267,13 +267,13 @@
                 android:layout_weight="1.5">
 
             <CheckBox
-                    android:id="@+id/activity_box"
+                    android:id="@+id/cbA"
                     android:text="활동"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"/>
             <CheckBox
-                    android:id="@+id/place_box"
+                    android:id="@+id/cbP"
                     android:text="장소"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                 android:orientation="vertical">
 
             <TextView
-                    android:id="@+id/activity_txt"
+                    android:id="@+id/tvA"
                     android:text="활동뭐뭐있었냐기억안난ㄴ다리"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -296,7 +296,7 @@
                     android:layout_weight="1"/>
 
             <TextView
-                    android:id="@+id/place_txt"
+                    android:id="@+id/tvP"
                     android:text="장소는 새천년관 건국대학교"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
