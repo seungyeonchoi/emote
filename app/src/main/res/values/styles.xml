@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/spoqahansansbold</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name ="windowActionBar">false</item>
         <item name ="windowNoTitle">true</item>
@@ -13,6 +14,7 @@
         <item name="android:windowBackground">@drawable/splashimg</item>
     </style>
     <style name="TabTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/spoqahansansbold</item>
         <item name ="android:textSize">10sp</item>
         <item name="colorPrimary">#efcfd3</item>                                <!-- 배경 -->
         <item name="colorAccent">@android:color/white</item>                    <!-- 하단 움직이는 바 색-->
@@ -20,4 +22,6 @@
         <item name="android:textColorPrimary">#706f6e</item>       <!-- 탭바 선택된 텍스트 -->
         <item name="android:textColorSecondary">@android:color/white</item>     <!-- 탭바 텍스트 -->
     </style>
+
+
 </resources>
