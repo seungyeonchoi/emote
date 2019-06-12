@@ -14,6 +14,9 @@ class ShowPostActivity : AppCompatActivity() {
     var pid=-1
     var uid=-1
     var iter = 0
+    var r_able = true
+    var l_able = false //true: 공감한 상태 / false : 공감안한 상태
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_post)
@@ -22,8 +25,7 @@ class ShowPostActivity : AppCompatActivity() {
         val emoteArr= arrayOf("기쁨","화남","슬픔","신남","애매","사랑","놀람","뿌듯","아픔","짜증","외롭","설렘")
          var imgArray =getResources().obtainTypedArray(R.array.drawable)
 
-        var r_able = true
-        var l_able = true
+
         //선택한 게시판 감정의 번호를 받아서 eid로 설정
         val i=intent
         val eid=i.getIntExtra("emotion",-1)
@@ -53,13 +55,20 @@ class ShowPostActivity : AppCompatActivity() {
 
         }
         img_like.setOnClickListener {
-            if(l_able) {
-              //  post.heart_count = (post.heart_count.toInt() + 1).toString()
-     //           DB().update(post)
+            if(!l_able) {
+                post.heart_count = (post.heart_count.toInt() + 1).toString()
                 text_count.text = post.heart_count
-                l_able = false
+                DB().update(post)
+                l_able = true
+                img_like.setImageResource(R.drawable.like_btn)
+                Toast.makeText(this, "공감하였습니다.", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this, "이미 공감한 게시글입니다.", Toast.LENGTH_SHORT).show()
+                post.heart_count = (post.heart_count.toInt()-1).toString()
+                text_count.text = post.heart_count
+                DB().update(post)
+                l_able=false
+                img_like.setImageResource(R.drawable.like_btn)//빈하트로 바꾸기
+                Toast.makeText(this, "공감을 취소합니다.", Toast.LENGTH_SHORT).show()
             }
             Log.d("공감!", "${post.title}에 공감을 눌렀어요.")
         }
@@ -98,7 +107,6 @@ class ShowPostActivity : AppCompatActivity() {
             text_contents.text = post.contents
             text_count.text = post.heart_count
             text_place.text = "장소 : ${post.place}"
-
         } else {
             Log.d("error", "$pid 에 해당하는 글이 없음.")
             //이전 화면으로 돌아가기.
