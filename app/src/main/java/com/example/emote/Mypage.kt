@@ -14,6 +14,8 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_mypage.*
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
+import java.nio.ByteBuffer
+import java.nio.charset.Charset
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -59,14 +61,18 @@ class Mypage : Fragment() {
               super.onActivityCreated(savedInstanceState)
 
 
+
         val myBoardListview=activity!!.findViewById<RecyclerView>(R.id.myBoardListview)
         val layoutManager=LinearLayoutManager(activity)
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
         //uid를 받아오면
         val items=DB().getPosts() as MutableList<DB.Post>
-      //  val items=DB().getPostsByQuery("uid=0") as MutableList<DB.Post>
+        //  val items=DB().getPostsByQuery("uid=0") as MutableList<DB.Post>
         Log.v("items",items.size.toString())
+
+
+
         val adapter=myBoardAdapter(items)
         Log.v("items","adapter선언")
         myBoardListview.adapter=adapter

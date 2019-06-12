@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
@@ -15,6 +16,8 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.board_card.view.*
 import org.intellij.lang.annotations.Identifier
 import org.w3c.dom.Text
+import java.nio.ByteBuffer
+import java.nio.charset.Charset
 
 class myBoardAdapter(val items:MutableList<DB.Post>)
     :RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
@@ -61,11 +64,25 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
         p0.title.text = "챔스 결승"
         p0.contents.text ="리버풀이 우승할 거라고 생각했었는데 어떤 나쁜 놈이 토트넘에 돈을 걸라고 했다 \n 그리고 리버풀이 2:0으로 이겨버렸다 결국 나는 2만원을 그렇게 뜯기고 말았다 마음이 아팠다"
    */
+
+
+        val charset= Charset.forName("euc-kr")
+
+        var testTitle=charset.decode(ByteBuffer.wrap(items.get(p1).title.toByteArray())).toString()
+        //userid에 맞는 post list가 items 입니다.t=items.get(p1).title
+        var testContents=charset.decode(ByteBuffer.wrap(items.get(p1).contents.toByteArray())).toString()
+        var testDate=charset.decode(ByteBuffer.wrap(items.get(p1).date.toByteArray())).toString()
+
+        //val charbuffer=charset.decode(ByteBuffer.wrap(testStr.toByteArray()))
+        p0.title.text=testTitle
+        p0.contents.text=testContents
+        p0.mbCardTime.text=testDate
+        /*
         p0.title.text=items.get(p1).title
         //userid에 맞는 post list가 items 입니다.t=items.get(p1).title
         p0.contents.text=items.get(p1).contents
         p0.mbCardTime.text=items.get(p1).date
-
+*/
         //val emotion index=items.get(p1).pid.toInt()
         try{
          val emtListforPost = db.getEmotion(items.get(p1).pid.toInt()) as List<DB.Emotion>
@@ -75,9 +92,11 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
         for(i in 0..emtListforPost.size-1){
              Log.v("doingadapter",i.toString())
             val v=imageView.get(2*i) as ImageView
+            v.visibility= VISIBLE
             v.setImageResource(image.get(emtListforPost.get(i).eid.toInt()))
             Log.v("doingadaptersetImage",emtListforPost.get(i).eid)
             val s=imageView.get(2*i+1) as TextView
+            s.visibility=VISIBLE
             s.text=emtListforPost.get(i).percent
             Log.v("doingadaptersetText",emtListforPost.get(i).percent)
 
