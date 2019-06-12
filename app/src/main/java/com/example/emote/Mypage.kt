@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -13,9 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_mypage.*
-import kotlinx.android.synthetic.main.fragment_mypage.view.*
-import java.nio.ByteBuffer
-import java.nio.charset.Charset
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,15 +33,13 @@ class Mypage : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
-
+    var uid=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
-
     }
 
     override fun onCreateView(
@@ -59,26 +53,29 @@ class Mypage : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
               super.onActivityCreated(savedInstanceState)
-
-
+        if(activity!=null){
+            val intent=activity!!.intent
+            if(intent!=null)
+                if(intent.hasExtra("uid"))
+                    uid=intent.getStringExtra("uid")
+        }
 
         val myBoardListview=activity!!.findViewById<RecyclerView>(R.id.myBoardListview)
         val layoutManager=LinearLayoutManager(activity)
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
-        //uid를 받아오면
-        val items=DB().getPosts() as MutableList<DB.Post>
-        //  val items=DB().getPostsByQuery("uid=0") as MutableList<DB.Post>
-        Log.v("items",items.size.toString())
 
-
+        val items=DB().getPostsByQuery(uid) as MutableList<DB.Post>
 
         val adapter=myBoardAdapter(items)
         Log.v("items","adapter선언")
         myBoardListview.adapter=adapter
         Log.v("items","adapter연결")
+
         myBoardBtn.setOnClickListener {
             val intent=Intent(activity,SelectEmoteActivity::class.java)
+            intent.putExtra("uid",uid)
+            Log.i("item","아이디"+uid)
             startActivity(intent)
         }
 

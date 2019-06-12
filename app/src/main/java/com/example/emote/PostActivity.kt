@@ -28,7 +28,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var imvArr:ArrayList<ImageView>
     lateinit var emoteArr:ArrayList<Int>
     lateinit var post:Post
-    var uid="temp"
+    var uid=""
     var mode:String="writing"
     var public="0"
    var selectedEmote= mutableListOf<Int>()
@@ -45,6 +45,9 @@ class PostActivity : AppCompatActivity() {
         spinArr= arrayListOf(emoteSeekBar1,emoteSeekBar2,emoteSeekBar3)
         imvArr=arrayListOf(emotion_1,emotion_2,emotion_3)
         val i=intent
+        if(i.hasExtra("uid"))
+            uid=i.getStringExtra("uid")
+        Log.i("item","아이디"+uid)
         for(j in 1 .. 3){
            if(i.hasExtra("emotion"+j.toString())){
                selectedEmote.add(i.getIntExtra("emotion"+j,-1))
@@ -173,11 +176,21 @@ class PostActivity : AppCompatActivity() {
             if(isFilled()) {
                 val mPost = DB.Post("",post.pb, getDate(), post.contents, post.place, "0", post.title, post.activity, uid)
                 DB().insert(mPost)
-                val items=DB().getPosts() as MutableList<DB.Post>
-                for(i in items.size-1 downTo 0){
-                    if(items[i].title==post.title && items[i].place==post.place) //pid를 가져올 조건은 더 생각해봐야할듯
-                        post.pid=items[i].pid
-                }
+                var items=DB().getPosts() as MutableList<DB.Post>
+
+                    for(i in items.size-1 downTo 0){
+                        if(items[i].title==post.title && items[i].place==post.place) //pid를 가져올 조건은 더 생각해봐야할듯
+                            post.pid=items[i].pid
+                    }
+//                if(items!=null) {
+//                    items = items as MutableList<DB.Post>
+//                    for(i in items.size-1 downTo 0){
+//                        if(items[i].title==post.title && items[i].place==post.place) //pid를 가져올 조건은 더 생각해봐야할듯
+//                            post.pid=items[i].pid
+//                    }
+//                }
+//                else
+//                    post.pid="5"
                 var mCount=0
                 for(i in selectedEmote){
                     if(i!=-1) {
@@ -195,7 +208,9 @@ class PostActivity : AppCompatActivity() {
                 activitySpin.setSelection(0)
 
                 Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,MainActivity::class.java))
+                val i=Intent(this,MainActivity::class.java)
+                i.putExtra("uid",uid)
+                startActivity(i)
             }
             else
                 Toast.makeText(this, "모든 필드를 채워주세요!",Toast.LENGTH_SHORT).show()

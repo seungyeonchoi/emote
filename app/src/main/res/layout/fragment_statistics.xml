@@ -1,42 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-             android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
-              xmlns:android="http://schemas.android.com/apk/res/android">
+              android:orientation="vertical">
 
     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_width="364dp"
-            android:layout_height="85dp"
-            android:id="@+id/linearLayout"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
-            android:gravity="center"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1">
 
         <Spinner
-                android:layout_width="wrap_content" android:spinnerMode="dialog" android:entries="@array/statistic_arr"
-                android:layout_height="wrap_content" android:id="@+id/rangeSpin" android:layout_weight="1"/>
+                android:id="@+id/statistics_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:spinnerMode="dropdown"
+                android:entries="@array/statistic_arr">
+        </Spinner>
+
         <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="간의 감정 기록"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                android:textSize="18sp" />
 
     </LinearLayout>
-    <ImageView android:layout_width="match_parent" android:layout_height="300dp" android:id="@+id/graphCanvas"/>
-    <View
-            android:id="@+id/divider"
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-    />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal">
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/happiness_icon"/>
+        <TextView
+                android:id="@+id/count_1"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/anger_icon"/>
+        <TextView
+                android:id="@+id/count_2"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/sadness_icon"/>
+        <TextView
+                android:id="@+id/count_3"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/excited_icon"/>
+        <TextView
+                android:id="@+id/count_4"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center" android:paddingLeft="60dp">
-        <CheckBox android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:id="@+id/checkbox01"  android:text="장소"/>
-        <CheckBox android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" android:id="@+id/checkbox03" android:text="활동"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/hmm_icon"/>
+        <TextView
+                android:id="@+id/count_5"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/love_icon"/>
+        <TextView
+                android:id="@+id/count_6"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/terrified_icon"/>
+        <TextView
+                android:id="@+id/count_7"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/proud_icon"/>
+        <TextView
+                android:id="@+id/count_8"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/sick_icon"/>
+        <TextView
+                android:id="@+id/count_9"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/annoyed_icon"/>
+        <TextView
+                android:id="@+id/count_10"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/lonely_icon"/>
+        <TextView
+                android:id="@+id/count_11"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/dugeun_icon"/>
+        <TextView
+                android:id="@+id/count_12"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"/>
+
     </LinearLayout>
 
+    <ImageView
+            android:id="@+id/statistics_graph"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/graph_1"/>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal" android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginBottom="20dp">
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1.5">
+
+            <CheckBox
+                    android:id="@+id/cbA"
+                    android:text="활동"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"/>
+            <CheckBox
+                    android:id="@+id/cbP"
+                    android:text="장소"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tvA"
+                    android:text="활동뭐뭐있었냐기억안난ㄴ다리"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            <TextView
+                    android:id="@+id/tvP"
+                    android:text="장소는 새천년관 건국대학교"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
-
