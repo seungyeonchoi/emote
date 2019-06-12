@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".SigninActivity">
         </activity>
+        <activity android:name=".ShowPostActivity">
+        </activity>
         <activity android:name=".LoginActivity">
         </activity> <!-- 스플래시 액티비티 -->
         <activity

@@ -1,6 +1,7 @@
 package com.example.emote
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,9 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_emoteboard.*
-import android.content.Intent
-import android.widget.AdapterView
-import android.R.layout
 
 
 
@@ -77,8 +75,8 @@ class Emoteboard : Fragment() {
 
        // LoginActivity가 아니라 showPostActivity를 띄워야하는데 이 액티비티가 실행이 안됩니다.
         emoteboardList.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(activity!!.applicationContext, LoginActivity::class.java)
-            intent.putExtra("감정 뭔지", position)
+            val intent = Intent(activity!!.applicationContext, ShowPostActivity::class.java)
+            intent.putExtra("emotion", position)
             startActivity(intent)
         }
 

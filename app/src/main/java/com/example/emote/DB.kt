@@ -109,6 +109,7 @@ class DB{
         }
         return null
     }
+
     fun insert(user : User) {
         try {
             val result = InsertData().execute(IP_ADDRESS, "INSERT INTO `user` (`tel`, `pw`, `caution`, `sad`) VALUES ('${user.tel}', '${user.pw}', '${user.caution}', '${user.sad}')").get()
@@ -123,9 +124,11 @@ class DB{
         val result = InsertData().execute(IP_ADDRESS, "INSERT INTO `post` (`pb`, `date`, `contents`, `place`, `heart_count`, `title`, `activity`, `uid`) VALUES ('${post.pb}', NOW(), '${post.contents}', '${post.place}', '${post.heart_count}', '${post.title}', '${post.activity}', '${post.uid}')").get()
         try {
             Log.d("sql insert result : ", result)
+
         } catch (e: Exception) {
             e.printStackTrace()
             Log.d("error!!!! : ", "Error!!", e)
+
         }
     }
     fun insert(emotion : Emotion) {

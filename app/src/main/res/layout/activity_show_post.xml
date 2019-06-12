@@ -27,13 +27,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
-                android:src="@drawable/dugeun_icon"
+
                 android:scaleType="fitCenter"
                 android:padding="10dp"/>
 
         <TextView
                 android:id="@+id/text_etitle"
-                android:text="기쁨 게시판"
+                android:text=""
                 android:layout_width="0dp"
                 android:gravity="center"
                 android:textSize="30sp"
