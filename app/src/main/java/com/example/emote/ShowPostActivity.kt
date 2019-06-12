@@ -67,7 +67,7 @@ class ShowPostActivity : AppCompatActivity() {
                 text_count.text = post.heart_count
                 DB().update(post)
                 l_able=false
-                img_like.setImageResource(R.drawable.like_btn)//빈하트로 바꾸기
+                img_like.setImageResource(R.drawable.img_unlike)//빈하트로 바꾸기
                 Toast.makeText(this, "공감을 취소합니다.", Toast.LENGTH_SHORT).show()
             }
             Log.d("공감!", "${post.title}에 공감을 눌렀어요.")
@@ -106,6 +106,7 @@ class ShowPostActivity : AppCompatActivity() {
             text_title.text = post.title
             text_contents.text = post.contents
             text_count.text = post.heart_count
+            img_like.setImageResource(R.drawable.img_unlike)//빈하트로 바꾸기
             text_place.text = "장소 : ${post.place}"
         } else {
             Log.d("error", "$pid 에 해당하는 글이 없음.")

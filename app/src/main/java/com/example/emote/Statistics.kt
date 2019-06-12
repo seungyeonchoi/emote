@@ -1,19 +1,12 @@
 package com.example.emote
 
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.ImageView
-import kotlinx.android.synthetic.main.fragment_statistics.*
-import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -60,4 +53,4 @@ class Statistics : Fragment() {
 
 
     }
-}
+
