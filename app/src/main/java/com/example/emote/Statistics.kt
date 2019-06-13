@@ -85,7 +85,6 @@ class Statistics : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        tv = arrayOf<TextView>(count_1, count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_11, count_12)
         init()
         addListener()
     }
@@ -163,6 +162,7 @@ class Statistics : Fragment() {
         tvP.setText(p_data[0])
         tvA.setVisibility(View.INVISIBLE)
         tvP.setVisibility(View.INVISIBLE)
+        tv = arrayOf<TextView>(count_1, count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_11, count_12)
     }
 
     /**
@@ -193,7 +193,7 @@ class Statistics : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Emoteboard().apply {
+            Statistics().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

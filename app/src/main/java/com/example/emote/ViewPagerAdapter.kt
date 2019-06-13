@@ -12,7 +12,6 @@ class ViewPagerAdapter(fm: FragmentManager,val  tabCount:Int) : FragmentPagerAda
         return when(p0){
             0 -> {
                 Mypage()
-
             }
             1 -> {
                 Emoteboard()
