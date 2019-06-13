@@ -67,7 +67,7 @@ class DB{
     }
     fun getPostsByQuery(q : String) : List<Post>? {
         try {
-            val json = InsertData().execute(IP_ADDRESS, "select * from post where uid=$q").get()
+            val json = InsertData().execute(IP_ADDRESS, "select * from post where $q").get()
 
 
             return Klaxon().parseArray(json)
