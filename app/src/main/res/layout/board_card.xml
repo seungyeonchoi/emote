@@ -41,44 +41,43 @@
             android:paddingBottom="5dp">
 
         <ImageView
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:id="@+id/mbCardEmote1"
-                android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
+                android:layout_width="10dp" android:layout_height="match_parent" android:scaleType="fitCenter"
                 android:layout_weight="1" android:src="@drawable/hmm_icon" android:padding="2dp"/>
         <TextView
-
                 android:id="@+id/mbCardEmote1_Stat"
-                android:text="" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content"  android:layout_weight="1"  android:layout_height="wrap_content" android:layout_gravity="center"/>
+                android:text="2" android:textSize="20sp"
+                android:layout_width="13dp" android:layout_weight="1" android:layout_height="match_parent"/>
         <ImageView
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:id="@+id/mbCardEmote2"
-                android:layout_width="0dp" android:layout_height="match_parent" android:scaleType="fitCenter"
+                android:layout_width="10dp" android:layout_height="match_parent" android:scaleType="fitCenter"
                 android:layout_weight="1" android:src="@drawable/sadness_icon" android:padding="2dp"/>
         <TextView
 
                 android:id="@+id/mbCardEmote2_Stat"
                 android:text="" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"/>
+                android:layout_width="10dp"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"/>
         <ImageView
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:id="@+id/mbCardEmote3"
-                android:layout_width="0dp"  android:layout_weight="1" android:layout_height="match_parent" android:scaleType="fitCenter"
+                android:layout_width="10dp"  android:layout_weight="1" android:layout_height="match_parent" android:scaleType="fitCenter"
                 android:src="@drawable/hmm_icon" android:padding="2dp"
                />
         <TextView
 
                 android:id="@+id/mbCardEmote3_Stat"
                 android:text="" android:textSize="20sp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-                android:layout_width="wrap_content"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"
+                android:layout_width="10dp"  android:layout_weight="1" android:layout_height="wrap_content" android:layout_gravity="center"
                />
         <Space
-                android:layout_width="0dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent" android:layout_weight="5"/>
 
         <ImageView
                 android:id="@+id/trash_btn"
-                android:layout_width="0dp" android:scaleType="fitCenter" android:padding="2dp"
+                android:layout_width="10dp" android:scaleType="fitCenter" android:padding="2dp"
                 android:layout_marginRight="20dp"
                 android:src="@drawable/trash_btn" android:layout_height="match_parent" android:layout_weight="1" />
 
