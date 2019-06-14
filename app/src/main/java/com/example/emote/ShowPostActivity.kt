@@ -36,6 +36,7 @@ class ShowPostActivity : AppCompatActivity() {
             finish()
         }
         else{
+
             text_etitle.text=emoteArr[eid]+" 게시판"
             img_emo.setImageResource(imgArray.getResourceId(eid, -1))
             showPost()
@@ -98,7 +99,7 @@ class ShowPostActivity : AppCompatActivity() {
 
         pid = pids!![iter++].pid.toInt()
 
-        val result = DB().getPostsByQuery("pid = $pid")
+        val result = DB().getPostsByQuery("pid = $pid, pb='1'")
         if (result != null) {
             val post = result[0]
             uid=post.uid.toInt()
@@ -110,7 +111,8 @@ class ShowPostActivity : AppCompatActivity() {
             text_place.text = "장소 : ${post.place}"
         } else {
             Log.d("error", "$pid 에 해당하는 글이 없음.")
-            //이전 화면으로 돌아가기.
+            Toast.makeText(this,"이 감정을 공유한 사용자가 없습니다!",Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }

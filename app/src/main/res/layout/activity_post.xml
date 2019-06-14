@@ -108,9 +108,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:hint="  내용"
                     android:background="#f0f0ef"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:text=""
-                    android:ems="10"
+                    android:ems="10" android:scrollbars="vertical"
                     android:id="@+id/contentsEditText" />
 
             <ImageButton android:layout_gravity="center" android:src="@drawable/record_btn"
