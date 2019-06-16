@@ -24,7 +24,8 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(nextIntent) //selectemote확인해보셈 ~!~!
                 val id_str = log_id.text.toString()
                 val pw_str = log_pw.text.toString()
-
+                log_id.setText("")
+                log_pw.setText("")
                 val user = DB().getUsersByQuery("tel = $id_str")
                 if(user.isNullOrEmpty()) {
                     Toast.makeText(this, "아이디가 일치하지 않습니다.", Toast.LENGTH_LONG).show()
