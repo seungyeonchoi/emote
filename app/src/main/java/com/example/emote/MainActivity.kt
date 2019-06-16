@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity()
         val i=intent
         val uid=i.getStringExtra("uid")
         init()
-        alert()
+
     }
 
     fun alert(){
