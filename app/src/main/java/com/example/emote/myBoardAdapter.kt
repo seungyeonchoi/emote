@@ -1,14 +1,21 @@
 package com.example.emote
 
+import android.opengl.Visibility
+import android.provider.ContactsContract
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.board_card.view.*
+import org.intellij.lang.annotations.Identifier
+import org.w3c.dom.Text
 import java.nio.ByteBuffer
 import java.nio.charset.Charset
 
@@ -86,18 +93,16 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
              Log.v("doingadapter",i.toString())
             val v=imageView.get(2*i) as ImageView
             v.visibility= VISIBLE
-
             v.setImageResource(image.get(emtListforPost.get(i).eid.toInt()))
             Log.v("doingadaptersetImage",emtListforPost.get(i).eid)
             val s=imageView.get(2*i+1) as TextView
             s.visibility=VISIBLE
-            if(s.visibility== View.VISIBLE){
-                Log.v("zezezezeze","see")
-            }
             s.text=emtListforPost.get(i).percent
+            Log.i("percenttext",emtListforPost.get(i).percent.toString())
             Log.v("doingadaptersetText",emtListforPost.get(i).percent)
 
         }
+
         }
         catch(e : Exception){
             Log.d("error", e.message);

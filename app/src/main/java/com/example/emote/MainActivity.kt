@@ -1,8 +1,10 @@
 package com.example.emote
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,11 +25,27 @@ class MainActivity : AppCompatActivity()
         val i=intent
         val uid=i.getStringExtra("uid")
         init()
+        alert()
     }
 
+    fun alert(){
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("요즘 우울하거나 슬픈 일이 많네요!  \n 전문 상담가를 안내합니다. \n 02-2380-3247 (해피해피 상담)")
+            .setTitle("감정 관리")
+            .setIcon(R.drawable.abc_ic_star_black_48dp)
+        builder.setPositiveButton("확인"){_,_->
+           /* val str=Uri.parse("tel:82-02-2380-3247")
+                 val intent= Intent(Intent.ACTION_DIAL,str)
+            startActivity(intent)*/
+        }
 
+        val dialog = builder.create()
+        dialog.show()
+
+    }
     fun init(){
 
+        alert()
         adapter= ViewPagerAdapter(supportFragmentManager,layout_tab.tabCount)
         viewPager.adapter=adapter
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {

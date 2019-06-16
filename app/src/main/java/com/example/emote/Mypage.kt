@@ -64,7 +64,7 @@ class Mypage : Fragment() {
         val layoutManager=LinearLayoutManager(activity)
         Log.v("nnnnnn",layoutManager.toString())
         myBoardListview.layoutManager=layoutManager
-
+        //uid="7"
         val items=DB().getPostsByQuery("uid = $uid") as MutableList<DB.Post>
 
         val adapter=myBoardAdapter(items)

@@ -2,6 +2,7 @@ package com.example.emote
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
@@ -14,10 +15,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
+
     fun OnBtnClick(view: View) {
         when (view.id) {
             R.id.btn_login -> {
-
+                val nextIntent = Intent(this, MainActivity::class.java)
+                nextIntent.putExtra("uid", 1)
+                startActivity(nextIntent) //selectemote확인해보셈 ~!~!
                 val id_str = log_id.text.toString()
                 val pw_str = log_pw.text.toString()
 
@@ -29,13 +33,11 @@ class LoginActivity : AppCompatActivity() {
                 }else {
                     Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_LONG).show()
                     val uid = user[0].uid // 전역 변수로 넘겨주기 가능?
-                    val nextIntent = Intent(this, MainActivity::class.java)
-                    nextIntent.putExtra("uid", uid)
-                    startActivity(nextIntent) //selectemote확인해보셈 ~!~!
+
                 }
             }
             R.id.btn_join1 -> {
-                startActivity(Intent(this, SigninActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
     }
