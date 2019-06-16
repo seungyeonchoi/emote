@@ -29,6 +29,7 @@ class ShowPostActivity : AppCompatActivity() {
         //선택한 게시판 감정의 번호를 받아서 eid로 설정
         val i=intent
         val eid=i.getIntExtra("emotion",-1)
+        Toast.makeText(this,eid.toString(),Toast.LENGTH_SHORT).show()
         pids = DB().getEmotionsbyQuery("eid = '$eid'")?.shuffled() //선택한 감정을 게시한 피드들의 컬렉션
 
         if(pids.isNullOrEmpty()){
@@ -99,7 +100,7 @@ class ShowPostActivity : AppCompatActivity() {
 
         pid = pids!![iter++].pid.toInt()
 
-        val result = DB().getPostsByQuery("pid = $pid, pb='1'")
+        val result = DB().getPostsByQuery("pid = '$pid'")
         if (result != null) {
             val post = result[0]
             uid=post.uid.toInt()
