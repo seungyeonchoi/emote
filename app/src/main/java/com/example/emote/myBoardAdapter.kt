@@ -18,6 +18,7 @@ import org.intellij.lang.annotations.Identifier
 import org.w3c.dom.Text
 import java.nio.ByteBuffer
 import java.nio.charset.Charset
+import java.util.*
 
 class myBoardAdapter(val items:MutableList<DB.Post>)
     :RecyclerView.Adapter<myBoardAdapter.ViewHolder>() {
@@ -89,6 +90,8 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
 
         Log.v("emotionlist3",emtListforPost!!.size.toString())
 
+            val random= Random()
+          //  imageView.get(1).text=(random.nextInt(20)+1 ).toString()
         for(i in 0..emtListforPost.size-1){
              Log.v("doingadapter",i.toString())
             val v=imageView.get(2*i) as ImageView
@@ -130,7 +133,7 @@ class myBoardAdapter(val items:MutableList<DB.Post>)
             contents = itemView.findViewById(R.id.mbCardContents)
             mbCardTime=itemView.findViewById(R.id.mbCardTime)
             mbCardEmote1 = itemView.findViewById(R.id.mbCardEmote1)
-            mbCardEmote1_Stat = itemView.findViewById(R.id.mbCardEmote2_Stat)
+            mbCardEmote1_Stat = itemView.findViewById(R.id.mbCardEmote1_Stat)
             mbCardEmote2 = itemView.findViewById(R.id.mbCardEmote2)
             mbCardEmote2_Stat = itemView.findViewById(R.id.mbCardEmote2_Stat)
             mbCardEmote3 = itemView.findViewById(R.id.mbCardEmote3)
