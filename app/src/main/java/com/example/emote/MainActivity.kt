@@ -1,6 +1,5 @@
 package com.example.emote
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -30,10 +29,10 @@ class MainActivity : AppCompatActivity()
 
     fun alert(){
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("요즘 우울하거나 슬픈 일이 많네요!  \n 전문 상담가를 안내합니다. \n 02-2380-3247 (해피해피 상담)")
-            .setTitle("감정 관리")
+        builder.setMessage("You've been having a hard time lately, haven't you?  \n When nothing is sure, everything is possible!")
+            .setTitle("Cheer up")
             .setIcon(R.drawable.abc_ic_star_black_48dp)
-        builder.setPositiveButton("확인"){_,_->
+        builder.setPositiveButton("OK"){_,_->
            /* val str=Uri.parse("tel:82-02-2380-3247")
                  val intent= Intent(Intent.ACTION_DIAL,str)
             startActivity(intent)*/

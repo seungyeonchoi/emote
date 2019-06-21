@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class boardArrayAdapter extends ArrayAdapter {
-    String[] emotion_name = {"기쁨", "화남", "슬픔", "신남", "애매", "사랑", "놀람", "뿌듯", "아픔", "짜증", "외롭", "설렘"};
+    String[] emotion_name = {"happiness","anger","sadness","excited","hmm...","love","terrified","proud","sick","annoyed","lonely","heart fluttering"};
     Context context;
     TypedArray imgArray = getContext().getResources().obtainTypedArray(R.array.drawable);
 
@@ -35,7 +35,7 @@ public class boardArrayAdapter extends ArrayAdapter {
             iv.setImageResource(imgArray.getResourceId(position, -1));
         }
         if (tv != null) {
-            tv.setText(emotion_name[position] + " 게시판");
+            tv.setText(emotion_name[position] + " board");
         }
 
         return v;

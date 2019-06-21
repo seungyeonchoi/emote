@@ -2,24 +2,23 @@
     <string name="app_name">emote</string>
     <string name="spin_prompt">활동을 선택하세요</string>
     <string-array name="spin_arr">
-        <item>독서</item>
-        <item>TV시청</item>
-        <item>운동</item>
-        <item>공부</item>
-        <item>쇼핑</item>
-        <item>여행</item>
-        <item>맛집탐방</item>
-        <item>가사일</item>
-        <item>음악감상</item>
-        <item>업무</item>
-        <item>영화감상</item>
-        <item>게임</item>
-        <item>없음</item>
+        <item>reading books</item>
+        <item>Watching TV</item>
+        <item>exercise</item>
+        <item>study</item>
+        <item>go shopping</item>
+        <item>travel</item>
+        <item>household chores</item>
+        <item>Listening to music</item>
+        <item>working</item>
+        <item>watcing movie</item>
+        <item>game</item>
+        <item>none of all</item>
     </string-array>
     <string-array name="statistic_arr">
-        <item>지난 3일</item>
-        <item>지난 일주일</item>
-        <item>지난 한달</item>
+        <item>the last 3 days</item>
+        <item>the last 7 days</item>
+        <item>the last 30 days</item>
     </string-array>
 
 

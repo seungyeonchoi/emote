@@ -34,10 +34,10 @@ class Statistics : Fragment() {
     var data2 = intArrayOf(5, 4, 9, 10, 14, 3, 5, 7, 2, 10, 4, 2)
     var data3 = intArrayOf(24, 12, 43, 52, 12, 15, 4, 20, 5, 17, 6, 7)
     var a_data =
-        arrayOf("게임, 공부", "독서, 게임, 운동, 쇼핑, 공부, 맛집탐방, 게임",
-            "독서, 게임, 업무, 운동, 쇼핑, 공부, 영화감상, 여행, 맛집탐방, 게임")
-    var p_data = arrayOf("새천년관, PC방", "새천년관, PC방, 우리집, 헬스장",
-        "새천년관, 스타시티, CGV건대점, 서가앤쿡, PC방, 우리집, 헬스장, 연구실")
+        arrayOf("game, study", "reading books, game, exercise, go shopping, study, travel, game",
+            "books, game, working, exercise, shopping, study, watching movie, travel")
+    var p_data = arrayOf("street, PC방", "konkuk univ, My home, gym",
+        " shopping mall, Movie Theater, My home, street, bus stop")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

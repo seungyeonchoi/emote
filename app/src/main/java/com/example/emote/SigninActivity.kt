@@ -22,13 +22,13 @@ class SigninActivity : AppCompatActivity() {
 
                 val user = DB().getUsersByQuery("tel = $id_str")
                 if (user?.size!! > 0) {
-                    Toast.makeText(this, "이미 Emote 회원입니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "You are already an Emote member.", Toast.LENGTH_LONG).show()
                 } else if (id_str.length != 11) {
-                    Toast.makeText(this, "유효하지 않은 전화번호 입니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Invalid phone number.", Toast.LENGTH_LONG).show()
                 } else if (pw_str.length < 4) {
-                    Toast.makeText(this, "비밀번호의 길이가 4 이상이어야 합니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Password must be at least 4 length.", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this, "회원가입 되었습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "OK", Toast.LENGTH_LONG).show()
                     DB().insert(DB.User("", id_str, "0", pw_str, "0"))
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()

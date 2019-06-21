@@ -9,7 +9,7 @@ class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try{
-            Thread.sleep(1000) //1초 대기후 실행
+            Thread.sleep(800) //1초 대기후 실행
         }
         catch(e:InterruptedException ){
             e.printStackTrace()

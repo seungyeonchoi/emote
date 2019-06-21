@@ -58,10 +58,10 @@ public class SelectEmoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (count>3) {
-                    Toast.makeText(getApplicationContext(), "3개 이하의 감정을 선택해 주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please choose less than three emotions.", Toast.LENGTH_SHORT).show();
                 }
                 else if (count == 0) {
-                    Toast.makeText(getApplicationContext(), "1개 이상의 감정을 선택해 주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please choose more than one emotion.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Intent intent = new Intent(getApplicationContext(), PostActivity.class);

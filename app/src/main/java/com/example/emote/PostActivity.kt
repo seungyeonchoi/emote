@@ -136,26 +136,26 @@ class PostActivity : AppCompatActivity() {
 
                     recorder.prepare()
                     recorder.start()
-                    Toast.makeText(this, "녹음을 시작합니다..", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "start record..", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
                     Log.e("SampleAudioRecorder", "Exception:" + e)
                 }
                 //alert 다이얼로그 띄우기
                 val builder = AlertDialog.Builder(this) //builder: 다이얼로그의 속성 설정만 해줌!
-                builder.setMessage("녹음을 끝내시겠습니까?")
-                    .setTitle("녹음중 ...")
+                builder.setMessage("Do you want to stop?")
+                    .setTitle(" ...")
 
-                builder.setPositiveButton("저장") { //오른쪽 버튼
+                builder.setPositiveButton("save") { //오른쪽 버튼
                         _, _ ->
                     //인자 2개라는 의미
                     if (recorder != null) {
                         recorder!!.stop()
                         recorder!!.release()
                         recorder = null
-                        Toast.makeText(this, "녹음이 저장되었습니다", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "save", Toast.LENGTH_SHORT).show()
                     }
                 }
-                builder.setNegativeButton("취소") { //왼쪽버튼
+                builder.setNegativeButton("cancel") { //왼쪽버튼
                         dialog, _ ->
                     val file=File(rAddr)
                     if(file.exists()){
@@ -168,7 +168,7 @@ class PostActivity : AppCompatActivity() {
                 dialog.show()
             }
             else{
-                Toast.makeText(this,"제목을 입력해주세요!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Please Write post's title!", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -207,13 +207,13 @@ class PostActivity : AppCompatActivity() {
                 emoteSeekBar3.progress=0
                 activitySpin.setSelection(0)
 
-                Toast.makeText(this, "등록되었습니다!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "save!", Toast.LENGTH_SHORT).show()
                 val i=Intent(this,MainActivity::class.java)
                 i.putExtra("uid",uid)
                 startActivity(i)
             }
             else
-                Toast.makeText(this, "모든 필드를 채워주세요!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "please write down all item!",Toast.LENGTH_SHORT).show()
         }
     }
     //감정선택한 갯수에 따라 프로그레스 바 isEnabled=false 처리해야함
@@ -279,7 +279,7 @@ class PostActivity : AppCompatActivity() {
             PERMISSION_REQUEST -> {
                 if (!checkAppPermission (permissions))
                 { // 퍼미션 동의하지 않았을 때 할일 // 앱종료 finish();
-                    Toast.makeText(applicationContext,"권한이 승인안됨", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,"reject", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }
