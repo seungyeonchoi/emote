@@ -80,11 +80,11 @@
                 android:layout_width="match_parent" android:orientation="horizontal"
                 android:layout_height="wrap_content" android:id="@+id/modeRadioGroup">
             <RadioButton
-                    android:text="글쓰기"
+                    android:text="write"
                     android:layout_width="wrap_content" android:checked="true"
                     android:layout_height="wrap_content" android:id="@+id/writeModeBtn" android:layout_weight="1"/>
             <RadioButton
-                    android:text="녹음하기"
+                    android:text="record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/recordModeBtn" android:layout_weight="1"/>
         </RadioGroup>
@@ -96,7 +96,7 @@
                   android:layout_height="0dp" android:layout_weight="4" android:gravity="center">
 
         <EditText
-                android:text="" android:hint="  제목"
+                android:text="" android:hint="  title"
                 android:layout_width="match_parent" android:background="#f0f0ef"
                 android:layout_height="0dp" android:id="@+id/titleEditText"
                 android:layout_marginBottom="10dp" android:layout_weight="1"/>
@@ -106,7 +106,7 @@
 
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:hint="  내용"
+                    android:layout_height="match_parent" android:hint="  contents"
                     android:background="#f0f0ef"
                     android:inputType="textMultiLine"
                     android:text=""
@@ -134,7 +134,7 @@
                 android:prompt="@string/spin_prompt"
                 android:layout_height="wrap_content" android:id="@+id/activitySpin" android:layout_weight="1"/>
         <EditText
-                android:text="" android:hint="장소"
+                android:text="" android:hint="place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/placeEditText" android:layout_weight="1"/>
     </LinearLayout>
@@ -147,11 +147,11 @@
                 android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/publicRadioGroup"
                 android:layout_height="wrap_content">
             <RadioButton
-                    android:text="나만보기"
+                    android:text="private"
                     android:layout_width="wrap_content" android:checked="true"
                     android:layout_height="wrap_content" android:id="@+id/privateModeBtn" android:layout_weight="1"/>
             <RadioButton
-                    android:text="공유하기"
+                    android:text="public"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/publicModeBtn" android:layout_weight="1"/>
         </RadioGroup>
@@ -170,5 +170,5 @@
     </LinearLayout>
 
 
-    //ems =10 : 10글자의 너비를 가진 edittext
+
 </LinearLayout>
